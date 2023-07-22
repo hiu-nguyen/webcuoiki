@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="index2.css">
+</head>
+
+<body>
+	<div class="Menu">
+		<div><a href="index.html">Trang chủ</a></div>
+		<div><a href="#">Tin tức</a></div>
+		<div><a href="#">Liên hệ</a></div>
+
+		<div class="username">
+			<div id="user">user name</div>
+			<div><a href="">Đổi mật khẩu</a></div>
+			<div id="logout"><a href="dangkycuoiki.html">Đăng xuất</a></div>
+		</div>
+	</div>
+
+
+	<h1 align="center">Lựa chọn câu hỏi</h1>
+	<br>
+	<div align="center" class="choose">
+		<select name="ok" id="ok" style="font-size: 15px;">
+			<option value="" id="o">Lựa chọn dạng câu hỏi</option>
+			<option value="" id="o1">Dạng câu hỏi 1 đáp án</option>
+			<option value="" id="o2">Dạng câu hỏi điền</option>
+			<option value="" id="o3">Dạng câu hỏi nhiều đáp án</option>
+			<option value="" id="o4">Danh sách câu hỏi đã thêm</option>
+		</select>
+	</div>
+	<br>
+
+
+	<div align="center">
+		<div id="mau">
+			<div align="center" class="oncechoice">
+				<h2>Câu hỏi 1 đáp án</h2>
+				<div>Nhập tên câu hỏi</div>
+				<div><input type="text"></div>
+
+				<div>Nhập đáp án</div>
+				<div>
+					<input type="text">
+					<input type="text">
+					<input type="text">
+					<input type="text">
+				</div>
+
+
+			</div>
+
+
+			<div align="center" class="fill">
+				<h2>Câu hỏi điền</h2>
+				<div>Nhập câu hỏi</div>
+				<div><input type="text"></div>
+
+				<div>Nhập đáp án cần điền</div>
+				<div><input type="text"></div>
+
+
+			</div>
+
+			<div align="center" class="multipleAnswers">
+				<h2>Câu hỏi nhiều đáp án</h2>
+				<div>Nhập câu hỏi</div>
+				<div><input type="text"></div>
+				<div>Nhập số đáp án</div>
+				<div><input type="text" id="gt"></div>
+				<div><button id="OK">OK</button></div>
+				<div id="list">
+				</div>
+
+				<button id="btn">Thêm đáp án</button>
+			</div>
+			<div class="button">
+				<button type="submit" class="add">Thêm câu hỏi</button>
+				<button type="submit" class="remove">Trở về</button>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+
+
+<script>
+	// Thêm câu hỏi và đáp án cho dạng câu hỏi điền
+	let gt = document.getElementById("gt");
+	let testCount = 1;
+	let tst = document.getElementById("tst");
+	let q = document.getElementById("list");
+	let btn = document.getElementById("btn");
+
+	document.getElementById("OK").onclick = function () {
+		while (q.hasChildNodes()) {
+			q.removeChild(q.firstChild);
+		}
+		let n = document.getElementById("gt").value;
+		for (let i = 0; i < n; i++) {
+			let test2 = document.createElement("div");
+			let test = document.createElement("div");
+			let test1 = document.createElement("input");
+			q.insertBefore(test, q.lastChild);
+			test.insertBefore(test1, test.lastChild);
+		}
+	}
+
+	btn.onclick = function () {
+		let test2 = document.createElement("div");
+		let test = document.createElement("div");
+		let test1 = document.createElement("input");
+		q.insertBefore(test, q.lastChild);
+		test.insertBefore(test1, test.lastChild);
+		testCount++;
+		console.log(testCount);
+	}
+
+
+	// Thay đổi dạng câu hỏi
+	let a = document.getElementById("o1");
+	let b = document.getElementById("o2");
+	let c = document.getElementById("o3");
+	let d = document.getElementById("o4");
+	let e = document.getElementById("ok");
+	let f = document.getElementById("o");
+	let nen = document.getElementById("mau");
+	let button = document.querySelector(".button")
+
+	const choose = document.querySelector(".choose")
+	const oncechoice = document.querySelector(".oncechoice")
+	const fill = document.querySelector(".fill")
+	const multipleAnswers = document.querySelector(".multipleAnswers")
+
+
+	e.onchange = function () {
+		if (a.selected === true) {
+			choose.style.display = "none"
+			oncechoice.style.display = "block";
+			button.style.display = "block";
+		}
+		else if (b.selected === true) {
+			choose.style.display = "none"
+			fill.style.display = "block";
+			button.style.display = "block";
+
+		}
+		else if (c.selected === true) {
+			choose.style.display = "none"
+			multipleAnswers.style.display = "block";
+			button.style.display = "block";
+		}
+		else if (d.selected === true) {
+			window.location.href = "index3.html";
+		}
+		else if (f.selected === true) {
+			nen.style.display = "block";
+		}
+	}
+
+
+	// Trở về trang ban đầu 
+	const remove = document.querySelector(".remove");
+
+	remove.onclick = function () {
+		oncechoice.style.display = "none";
+		fill.style.display = "none";
+		multipleAnswers.style.display = "none";
+		button.style.display = "none";
+		choose.style.display = "block";
+	}
+
+
+	// Thêm câu hỏi vào danh sách
+	const add = document.querySelector(".add")
+	let questions = [];
+
+	function save(questionData) {
+		const saving = JSON.parse(localStorage.getItem("questions")) || [];
+		saving.push(questionData);
+	}
+
+	add.onclick = function () {
+		const selectOption = document.getElementById("ok").value;
+		let questionData = {};
+
+		if (selectOption === "o1") {
+			const questionText = document.querySelector(".oncechoice input[type='text']");
+			const answerInputs = document.querySelectorAll(".oncechoice input[type='text']");
+			const answer = [];
+
+			answerInputs.forEach(input => {
+				answers.push(input.value);
+			});
+
+			questionData = {
+				type: "oncechoice",
+				question: questionText,
+				answers: answers
+			};
+		}
+		else if (selectOption === "o2") {
+			const fillQuestionText = document.querySelector(".fill input[type='text']").value;
+			const fillAnswer = document.querySelector(".fill input[type='text']").value;
+
+			questionData = {
+				type: "fill",
+				question: fillQuestionText,
+				answer: fillAnswer
+			};
+		}
+		else if (selectOption === "o3") {
+			const multiQuestionText = document.querySelector(".multipleAnswers input[type='text']").value;
+			const multiAnswerInputs = document.querySelectorAll(".multipleAnswers input[type='text']");
+			const multiAnswers = [];
+
+			multiAnswerInputs.forEach(input => {
+				multiAnswers.push(input.value);
+			});
+
+			questionData = {
+				type: "multipleAnswers",
+				question: multiQuestionText,
+				answers: multiAnswers
+			};
+		}
+
+		save(questionData);
+	}
+
+
+
+
+
+
+</script>
+
+</html>

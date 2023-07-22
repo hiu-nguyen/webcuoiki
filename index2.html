@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        /* Menu*/
+        .Menu{
+            line-height: 50px;
+            background-color: pink;
+            display: flex;
+            font-size: 17px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .Menu div{
+            margin-left: 30px;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        .Menu div:hover{
+            background-color: bisque;
+        }
+
+        /*          */
+        .username div {
+           margin-right: 30px;
+           display: block;
+
+        }
+        .username div a{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="Menu">
+        <div><a href="index.html">Trang chủ</a></div>
+        <div><a href="#">Tin tức</a></div>
+        <div><a href="#">Liên hệ</a></div>
+
+        <div class="username">
+            <div id="user"></div>
+            <div><a href="#">Đổi mật khẩu</a></div>
+            <div><a href="#">Đăng xuất</a></div>
+        </div>
+    </div>
+    <center>
+        <div>
+            <div>Lựa chọn dạng câu hỏi</div>
+            <div>
+                <select name="" id="choose">
+                    <option id="">Lựa chọn dạng câu hỏi</option>
+                    <option id="a">Dạng câu hỏi 1 đáp án</option>
+                    <option id="b">Dạng câu hỏi điền</option>
+                    <option id="c">Dạng câu hỏi nhiều đáp án</option>
+                    <option id="d">Dạng câu hỏi nối</option>
+                    <option>Danh sách câu hỏi</option>
+                </select>
+            </div>
+            <div>
+                <div>Nhập câu hỏi</div>
+                <input type="text" name="" id="">
+
+                <div>Lựa chọn đáp án</div>
+                <input type="text" name="" id="">
+            </div>
+        </div>
+
+        <div>Danh sách câu hỏi đã thêm</div>
+        <!-- <div>
+            <table>
+                <tr>STT</tr>
+                <tr>Câu hỏi</tr>
+                <tr>Loại câu hỏi</tr>
+                <tr>Người thêm</tr>
+                <tr>Thời gian thêm</tr>
+                <tr>Người chỉnh sửa gần nhất</tr>
+                <tr>Thời gian sửa gần nhất</tr>
+                <tr>Trạng thái</tr>
+                <tr>Chỉnh sửa</tr>
+                <tr>Xem chi tiết</tr>
+                <tr>#</tr>
+            </table>
+        </div> -->
+    </center>
+
+    <script src=""></script>
+</body>
+</html>

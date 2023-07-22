@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .body{
+            position: relative;
+            z-index: 0;
+        }
+        .dangky{
+            position: relative;
+            text-align: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            top: 150px;
+        }
+        .dangky > div {
+            font-size: 50px;
+            font-weight: bolder;
+        }
+        label input{
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            padding: 10px 30px;
+        }
+        button{
+            padding: 5px 30px;
+        }
+        #dangky{
+            background-color: green;
+        }
+        #dangnhap{
+            background-color: red;
+        }
+    </style>
+</head>
+<body background="https://demoda.vn/wp-content/uploads/2022/01/hinh-nen-bau-troi-mau-hong-dep-nhat.jpg">
+    <div class="nen" >
+        <div class="dangky">
+            <div>Đăng ký</div>
+            <div>
+                <form>
+                    <label><input type="text" id="user" placeholder="Tài khoản" size="50px"></label>
+                    <label><input type="password" id="pass" placeholder="Mật khẩu" size="50px"></label>
+                    <label><input type="password" id="confirmPass" placeholder="Nhập lại mật khẩu" size="50px"></label>
+                </form>
+            </div>
+            <div>
+                <button type="submit" id="dangky">Đăng ký</button>
+                <button type="submit" onclick="login()" id="dangnhap">Đăng nhập</button>
+            </div>
+        </div>
+    </div>
+   
+
+    <script>
+        const inputUsername = document.querySelector("#user");
+        const inputPassWord  = document.querySelector("#pass");
+        const inputConfirmPass = document.querySelector("#confirmPass");    
+
+        const register = document.querySelector("#dangky");
+
+        register.addEventListener("click", (event) =>{
+            event.preventDefault();
+            if( inputUsername.value ==="" || inputPassWord.value ==="" || inputConfirmPass.value ==="" ){
+                alert("Hãy điền đủ thông tin");
+            }
+            else{
+                const user = {
+                    username : inputUsername.value,
+                    password : inputPassWord.value,
+                };
+                let json = JSON.stringify(user);
+                localStorage.setItem(inputUsername.value, json);
+                alert("Đăng ký thành công");
+                window.location.href = "dangnhapcuoiki.html";
+            }
+        });
+
+        function login(){
+            window.location.href = "dangnhapcuoiki.html";
+        }
+    </script>
+</body>
+</html>

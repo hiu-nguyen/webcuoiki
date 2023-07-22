@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        /* Menu*/
+        .Menu{
+            line-height: 50px;
+            background-color: pink;
+            display: flex;
+            font-size: 17px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .Menu div{
+            margin-left: 30px;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        .Menu :hover{
+            background-color: bisque;
+        }
+
+        /*          */
+        .username{
+            position: absolute;
+            right: 70px;
+            color: white;
+        }
+        .username div {
+            margin-right: 30px;
+            display: block;
+        }
+        .username div a{
+            display: none;
+        }
+        .username div a{
+            display: block;
+        }
+
+
+        /* html css js*/
+        .khung{
+            margin-top: 300px;
+        }
+        .tieude{
+            color: green;
+            font-size: 30px;
+        }
+        .main{
+            margin: auto;
+            margin-top: 200px;
+            width: 80%;
+            height: 300px;
+            display: flex;
+            text-align: center;
+            justify-content: space-around;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        div img{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 300px;
+            width: 300px;
+            border: 5px solid red;
+            position: relative;
+            z-index: 2;
+        }
+        .nen{
+            background-color: rgba(193, 213, 213, 0.797);
+            position: absolute;
+            z-index: 6;
+            opacity: 0;
+            height: 310px;
+            width: 310px;
+            top: -5px;
+        }
+        button{
+           position: absolute;
+           z-index: 10;
+           top: 200px;
+           right: 120px;
+           padding: 10px;
+           background-color: orange;
+           border: none;
+        }
+        .nen:hover{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="Menu">
+            <div><a href="index.html">Trang chủ</a></div>
+            <div><a href="#">Tin tức</a></div>
+            <div><a href="#">Liên hệ</a></div>
+
+            <div class="username">
+                <div id="user">user name</div>
+                <div><a href="">Đổi mật khẩu</a></div>
+                <div id="logout"><a href="dangkycuoiki.html">Đăng xuất</a></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="main">
+        <div class="html">
+            <img src="https://w7.pngwing.com/pngs/201/90/png-transparent-logo-html-html5.png" alt="LogoHTML">
+            <div class="nen"><button type="submit"><a href="test.html">Vào học</a></button></div>
+        </div>
+
+        <div class="css">
+            <img src="https://cdn-icons-png.flaticon.com/512/888/888847.png" alt="LogoCss">
+            <div class="nen"><button type="submit"><a href="test.html">Vào học</a></button></div>
+        </div>
+        
+        <div class="js">
+            <img src="https://w1.pngwing.com/pngs/136/126/png-transparent-javascript-logo-angularjs-nodejs-computer-programming-web-development-computer-software-jquery-yellow.png" alt="LogoJS">
+            <div class="nen"><button type="submit"><a href="test.html">Vào học</a></button></div>
+        </div>
+    </div>
+
+    <script>
+        const logout = document.querySelector("logout")
+
+        logout.onclick = function(){
+            window.location.href = "dangnhapcuoiki.html";
+        }
+    </script>
+
+</body>
+</html>
