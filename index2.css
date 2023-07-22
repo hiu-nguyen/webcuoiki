@@ -93,3 +93,7 @@ h1{
     background-color: green;
 }
 
+.choose select{
+    display: flex;
+    flex-direction: column;
+}
