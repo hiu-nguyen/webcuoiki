@@ -180,63 +180,70 @@
 		choose.style.display = "block";
 	}
 
-
-	// Thêm câu hỏi vào danh sách
-	const add = document.querySelector(".add")
+	// Tạo một mảng để lưu trữ các câu hỏi
+    const add = document.querySelector(".add");
 	let questions = [];
 
-	function save(questionData) {
-		const saving = JSON.parse(localStorage.getItem("questions")) || [];
-		saving.push(questionData);
+	function saveQuestionToLocalStorage(questionData) {
+		// Lấy dữ liệu hiện tại từ local storage (nếu có)
+		const existingQuestions = JSON.parse(localStorage.getItem('questions')) || [];
+
+		// Thêm câu hỏi mới vào mảng
+		existingQuestions.push(questionData);
+
+		// Lưu lại mảng mới vào local storage
+		localStorage.setItem('questions', JSON.stringify(existingQuestions));
 	}
 
-	add.onclick = function () {
-		const selectOption = document.getElementById("ok").value;
+	// Xử lý sự kiện khi người dùng nhấn nút "Thêm câu hỏi"
+	document.querySelector(".add").onclick = function () {
+		const selectedOption = document.getElementById("ok").value;
 		let questionData = {};
 
-		if (selectOption === "o1") {
-			const questionText = document.querySelector(".oncechoice input[type='text']");
-			const answerInputs = document.querySelectorAll(".oncechoice input[type='text']");
-			const answer = [];
+        // Lấy dữ liệu câu hỏi dựa trên dạng câu hỏi đã chọn
+        if (selectedOption === "o1") {
+            const questionText = document.querySelector(".oncechoice input[type='text']").value;
+            const answerInputs = document.querySelectorAll(".oncechoice input[type='text']");
+            const answers = [];
 
-			answerInputs.forEach(input => {
-				answers.push(input.value);
-			});
+            answerInputs.forEach(input => {
+                answers.push(input.value);
+            });
 
-			questionData = {
-				type: "oncechoice",
-				question: questionText,
-				answers: answers
-			};
-		}
-		else if (selectOption === "o2") {
-			const fillQuestionText = document.querySelector(".fill input[type='text']").value;
-			const fillAnswer = document.querySelector(".fill input[type='text']").value;
+            questionData = {
+                type: "oncechoice",
+                question: questionText,
+                answers: answers
+            };
+        } else if (selectedOption === "o2") {
+            const fillQuestionText = document.querySelector(".fill input[type='text']").value;
+            const fillAnswer = document.querySelector(".fill input[type='text']").value;
 
-			questionData = {
-				type: "fill",
-				question: fillQuestionText,
-				answer: fillAnswer
-			};
-		}
-		else if (selectOption === "o3") {
-			const multiQuestionText = document.querySelector(".multipleAnswers input[type='text']").value;
-			const multiAnswerInputs = document.querySelectorAll(".multipleAnswers input[type='text']");
-			const multiAnswers = [];
+            questionData = {
+                type: "fill",
+                question: fillQuestionText,
+                answer: fillAnswer
+            };
+        } else if (selectedOption === "o3") {
+            const multiQuestionText = document.querySelector(".multipleAnswers input[type='text']").value;
+            const multiAnswerInputs = document.querySelectorAll(".multipleAnswers input[type='text']");
+            const multiAnswers = [];
 
-			multiAnswerInputs.forEach(input => {
-				multiAnswers.push(input.value);
-			});
+            multiAnswerInputs.forEach(input => {
+                multiAnswers.push(input.value);
+            });
 
-			questionData = {
-				type: "multipleAnswers",
-				question: multiQuestionText,
-				answers: multiAnswers
-			};
-		}
+            questionData = {
+                type: "multipleAnswers",
+                question: multiQuestionText,
+                answers: multiAnswers
+            };
+        }
 
-		save(questionData);
-	}
+        // Lưu câu hỏi vào local storage
+        saveQuestionToLocalStorage(questionData);
+    };
+</script>
 
 
 

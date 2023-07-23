@@ -76,29 +76,30 @@
                 alert("Sai tên đăng nhập hoặc mật khẩu");
             }
             localStorage.setItem("tid",tid);
+
             // const tid = document.getElementById('ttk');
             // const nmk = document.getElementById('mk');
 
-            // if((tid.value == 'admin') && ( nmk.value == '1234'))
-            // {
-            // 	localStorage.setItem("chuTK","hihi");
-            // 	localStorage.setItem("kiemTra","true");
-            // 	alert("Đăng nhập thành công! Hệ thống sẽ đưa bạn về trang chủ");
-            // 	window.location = "Index.html";
-            // }
-            // else if((tid.value == localStorage.getItem('tid')) && ( nmk.value == localStorage.getItem('nmk')))
-            // {
-            // 	localStorage.setItem("chuTK","bad");
-            // 	localStorage.setItem("kiemTra","true");
-            // }
-            // else{
-            // 	localStorage.setItem("kiemTra","false");
-            // 	alert("Sai tên đăng nhập hoặc mật khẩu");
-            // }
+            if((tid.value == 'admin') && ( nmk.value == '1234'))
+            {
+            	localStorage.setItem("chuTK","hihi");
+            	localStorage.setItem("kiemTra","true");
+            	alert("Đăng nhập thành công! Hệ thống sẽ đưa bạn về trang chủ");
+            	window.location = "Index.html";
+            }
+            else if((tid.value == localStorage.getItem('tid')) && ( nmk.value == localStorage.getItem('nmk')))
+            {
+            	localStorage.setItem("chuTK","bad");
+            	localStorage.setItem("kiemTra","true");
+            }
+            else{
+            	localStorage.setItem("kiemTra","false");
+            	alert("Sai tên đăng nhập hoặc mật khẩu");
+            }
             // xóa tất cả
             // localStorage.clear();
 
-            //xem số lượng đã lưu trên trình duyệt
+            // xem số lượng đã lưu trên trình duyệt
             // var data = localStorage.length;
             // alert(data);
         }
