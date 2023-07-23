@@ -64,7 +64,6 @@
 
             let user = localStorage.getItem(tid);
             let data = JSON.parse(user);
-            console.log(data);
             if(user === null) {
                 alert("Vui lòng nhập username password")
             }
@@ -96,9 +95,7 @@
             	localStorage.setItem("kiemTra","false");
             	alert("Sai tên đăng nhập hoặc mật khẩu");
             }
-            // xóa tất cả
-            // localStorage.clear();
-
+    
             // xem số lượng đã lưu trên trình duyệt
             // var data = localStorage.length;
             // alert(data);

@@ -41,10 +41,10 @@
 			<div align="center" class="oncechoice">
 				<h2>Câu hỏi 1 đáp án</h2>
 				<div>Nhập tên câu hỏi</div>
-				<div><input type="text"></div>
+				<div><input type="text" class="question"></div>
 
 				<div>Nhập đáp án</div>
-				<div>
+				<div class="answer">
 					<input type="text">
 					<input type="text">
 					<input type="text">
@@ -58,10 +58,10 @@
 			<div align="center" class="fill">
 				<h2>Câu hỏi điền</h2>
 				<div>Nhập câu hỏi</div>
-				<div><input type="text"></div>
+				<div><input type="text" class="question"></div>
 
 				<div>Nhập đáp án cần điền</div>
-				<div><input type="text"></div>
+				<div><input type="text" class="answer"></div>
 
 
 			</div>
@@ -69,9 +69,9 @@
 			<div align="center" class="multipleAnswers">
 				<h2>Câu hỏi nhiều đáp án</h2>
 				<div>Nhập câu hỏi</div>
-				<div><input type="text"></div>
+				<div><input type="text" class="question"></div>
 				<div>Nhập số đáp án</div>
-				<div><input type="text" id="gt"></div>
+				<div><input type="text" id="gt" class="answer"></div>
 				<div><button id="OK">OK</button></div>
 				<div id="list">
 				</div>
@@ -92,7 +92,6 @@
 <script>
 	/* ==== ĐỔI TÊN KHI ĐĂNG NHẬP ==== */
 	const un = document.getElementById("user");
-        console.log(localStorage.getItem("tid"));
         user.innerHTML=localStorage.getItem("tid");
 
 	// Thêm câu hỏi và đáp án cho dạng câu hỏi điền
@@ -194,19 +193,24 @@
 		// Lưu lại mảng mới vào local storage
 		localStorage.setItem('questions', JSON.stringify(existingQuestions));
 	}
-
 	// Xử lý sự kiện khi người dùng nhấn nút "Thêm câu hỏi"
 	document.querySelector(".add").onclick = function () {
-		const selectedOption = document.getElementById("ok").value;
+		const select = document.getElementById("ok");
+      	const selectedOption = select.options[select.selectedIndex].id;
 		let questionData = {};
-
+		
+        // Lấy dữ liệu câu hỏi dựa trên dạng câu hỏi đã chọn
+        document.querySelector(".add").onclick = function () {
+        const selectedOption = document.getElementById("ok").value;
+        let questionData = {};
+		}
         // Lấy dữ liệu câu hỏi dựa trên dạng câu hỏi đã chọn
         if (selectedOption === "o1") {
             const questionText = document.querySelector(".oncechoice input[type='text']").value;
             const answerInputs = document.querySelectorAll(".oncechoice input[type='text']");
             const answers = [];
 
-            answerInputs.forEach(input => {
+            answerInputs.forEach((input) => {
                 answers.push(input.value);
             });
 
@@ -229,7 +233,7 @@
             const multiAnswerInputs = document.querySelectorAll(".multipleAnswers input[type='text']");
             const multiAnswers = [];
 
-            multiAnswerInputs.forEach(input => {
+            multiAnswerInputs.forEach((input) => {
                 multiAnswers.push(input.value);
             });
 
@@ -243,12 +247,6 @@
         // Lưu câu hỏi vào local storage
         saveQuestionToLocalStorage(questionData);
     };
-</script>
-
-
-
-
-
 
 </script>
 
