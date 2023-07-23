@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +42,8 @@
             background-color: red;
         }
     </style>
-</head>
+<script type="text/javascript" nonce="d8a722cd90c64f099c621079dcc" src="//local.adguard.org?ts=1690010860711&amp;type=content-script&amp;dmn=zalo-file-dl1.zdn.vn&amp;url=https%3A%2F%2Fzalo-file-dl1.zdn.vn%2F680467ac6a198447dd08%2F8751790851889942903&amp;app=msedge.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script>
+<script type="text/javascript" nonce="d8a722cd90c64f099c621079dcc" src="//local.adguard.org?ts=1690010860711&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script></head>
 <body background="https://demoda.vn/wp-content/uploads/2022/01/hinh-nen-bau-troi-mau-hong-dep-nhat.jpg">
     <div class="nen" >
         <div class="dangky">
@@ -54,38 +56,39 @@
                 </form>
             </div>
             <div>
-                <button type="submit" id="dangky">Đăng ký</button>
-                <button type="submit" onclick="login()" id="dangnhap">Đăng nhập</button>
+                <button type="submit" id="dangky" onclick="signUp()">Đăng ký</button>
+                <button type="submit" id="dangnhap" onclick="login()">Đăng nhập</button>
             </div>
         </div>
     </div>
    
 
     <script>
-        const inputUsername = document.querySelector("#user");
-        const inputPassWord  = document.querySelector("#pass");
-        const inputConfirmPass = document.querySelector("#confirmPass");    
+        function signUp () {
+            var tid = document.getElementById('user').value;
+            var nmk = document.getElementById('pass').value;
+            var nlmk = document.getElementById('confirmPass').value;
 
-        const register = document.querySelector("#dangky");
+            var user = {
+                tid: tid,
+                nmk: nmk,
+            };
 
-        register.addEventListener("click", (event) =>{
-            event.preventDefault();
-            if( inputUsername.value ==="" || inputPassWord.value ==="" || inputConfirmPass.value ==="" ){
-                alert("Hãy điền đủ thông tin");
+            var kTra = false;
+
+            if (nlmk.value == nmk.value) {
+                kTra = true;
             }
-            else{
-                const user = {
-                    username : inputUsername.value,
-                    password : inputPassWord.value,
-                };
-                let json = JSON.stringify(user);
-                localStorage.setItem(inputUsername.value, json);
-                alert("Đăng ký thành công");
-                window.location.href = "dangnhapcuoiki.html";
+            if (kTra == true) {
+                var json = JSON.stringify(user);
+                localStorage.setItem(tid, json);
+                alert("Đăng kí thành công, hệ thống sẽ đưa bạn đến trang đăng nhập");
+                window.location = "dangnhapcuoiki.html";
+            } else {
+                alert("Đăng kí không thành công! Xin hãy thử lại");
             }
-        });
-
-        function login(){
+        }
+            function login(){
             window.location.href = "dangnhapcuoiki.html";
         }
     </script>

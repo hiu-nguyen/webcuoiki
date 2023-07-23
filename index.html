@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,6 +37,7 @@
         }
         .username div {
             margin-right: 30px;
+            display: block;
         }
         .username div a{
             display: none;
@@ -97,8 +99,11 @@
             opacity: 1;
         }
     </style>
+<script type="text/javascript" nonce="d8a722cd90c64f099c621079dcc" src="//local.adguard.org?ts=1690010860711&amp;type=content-script&amp;dmn=zalo-file-dl1.zdn.vn&amp;url=https%3A%2F%2Fzalo-file-dl1.zdn.vn%2F76177ebf730a9d54c41b%2F1980197438224655154&amp;app=msedge.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script>
+<script type="text/javascript" nonce="d8a722cd90c64f099c621079dcc" src="//local.adguard.org?ts=1690010860711&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script>
+    <script src="../Quizz/jsIndex.js"></script>
 </head>
-<body background="https://demoda.vn/wp-content/uploads/2022/01/hinh-nen-bau-troi-mau-hong-dep-nhat.jpg">
+<body>
     <div>
         <div class="Menu">
             <div><a href="index.html">Trang chủ</a></div>
@@ -106,9 +111,9 @@
             <div><a href="#">Liên hệ</a></div>
 
             <div class="username">
-                <div id="user">user name</div>
-                <div><a href="">Đổi mật khẩu</a> </div>
-                <div id="logout"><a href=""> Đăng xuất</a></div>
+                <div id="user" class="un" ><a href=""></a></div>
+                <div><a href="">Đổi mật khẩu</a></div>
+                <div id="logout"><a href="dangkycuoiki.html" onclick="logout()">Đăng xuất</a></div>
             </div>
         </div>
 
@@ -131,14 +136,14 @@
     </div>
 
     <script>
-
-// đăng xuất
-        const logout = document.querySelector("#logout")
-        logout.onclick = function(){
-            localStorage.setItem("check-login", "0");
-            window.location.href="dangkycuoiki.html";
+        function logout(){
+            window.location.href = "dangnhapcuoiki.html";
         }
+        /* ==== ĐỔI TÊN KHI ĐĂNG NHẬP ==== */
+        const un = document.getElementById("user");
+        console.log(localStorage.getItem("tid"));
+        user.innerHTML=localStorage.getItem("tid");
     </script>
 
-</body>
+</body> 
 </html>

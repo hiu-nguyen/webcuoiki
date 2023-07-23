@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +38,8 @@
             background-color: red;
         }
     </style>
-</head>
+<script type="text/javascript" nonce="d8a722cd90c64f099c621079dcc" src="//local.adguard.org?ts=1690010860711&amp;type=content-script&amp;dmn=zalo-file-dl1.zdn.vn&amp;url=https%3A%2F%2Fzalo-file-dl1.zdn.vn%2F1c5612fe1f4bf115a85a%2F3983489990801113022&amp;app=msedge.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script>
+<script type="text/javascript" nonce="d8a722cd90c64f099c621079dcc" src="//local.adguard.org?ts=1690010860711&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script></head>
 <body background="https://supperclean.vn/wp-content/uploads/2021/10/anh-bau-troi-hong-cute.jpg">
     <div class="nen">
         <div class="dangnhap">
@@ -49,36 +51,60 @@
                 </form>
             </div>
             <div>
-                <button type="submit" id="dangnhap">Đăng nhập</button>
+                <button type="submit" id="dangnhap" onclick="logIn()">Đăng nhập</button>
                 <button type="submit" onclick="register()" id="dangky">Đăng ký</button>
             </div>
         </div>
     </div>
 
     <script>
-        const inputUsername = document.querySelector("#user");
-        const inputPass = document.querySelector("#pass")
-        const Login = document.querySelector("#dangnhap")
+        function logIn () {
+            let tid = document.getElementById('user').value;
+            let nmk = document.getElementById('pass').value;
 
-        Login.addEventListener("click", (event) =>{
-            event.preventDefault();
-            if(inputUsername.value === "" || inputPass.value === ""){
-                alert("Hãy điền đầy đủ thông tin ") 
+            let user = localStorage.getItem(tid);
+            let data = JSON.parse(user);
+            console.log(data);
+            if(user === null) {
+                alert("Vui lòng nhập username password")
             }
-            else{
-                const user = JSON.parse(localStorage.getItem(inputUsername.value));
-                if( user.username === inputUsername.value && user.password === inputPass.value ){
-                    alert("Đăng nhập thành công");
-                    window.location.href = "index.html";
-                }
-                else{
-                    alert('Sai thông tin tài khoản');
-                }   
+            else if (tid == data.tid && nmk == data.nmk) {
+                alert("Đăng nhập thành công! Hệ thống sẽ đưa bạn về trang chủ");
+                window.location = "index.html";
             }
-        });
+            else {
+                alert("Sai tên đăng nhập hoặc mật khẩu");
+            }
+            localStorage.setItem("tid",tid);
+            // const tid = document.getElementById('ttk');
+            // const nmk = document.getElementById('mk');
 
-        function register(){
-            window.location.href = "dangkycuoiki.html";
+            // if((tid.value == 'admin') && ( nmk.value == '1234'))
+            // {
+            // 	localStorage.setItem("chuTK","hihi");
+            // 	localStorage.setItem("kiemTra","true");
+            // 	alert("Đăng nhập thành công! Hệ thống sẽ đưa bạn về trang chủ");
+            // 	window.location = "Index.html";
+            // }
+            // else if((tid.value == localStorage.getItem('tid')) && ( nmk.value == localStorage.getItem('nmk')))
+            // {
+            // 	localStorage.setItem("chuTK","bad");
+            // 	localStorage.setItem("kiemTra","true");
+            // }
+            // else{
+            // 	localStorage.setItem("kiemTra","false");
+            // 	alert("Sai tên đăng nhập hoặc mật khẩu");
+            // }
+            // xóa tất cả
+            // localStorage.clear();
+
+            //xem số lượng đã lưu trên trình duyệt
+            // var data = localStorage.length;
+            // alert(data);
+        }
+
+        function register () {
+            window.location = 'dangkycuoiki.html';
         }
 
     </script>
