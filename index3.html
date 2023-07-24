@@ -4,48 +4,155 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script type="text/javascript" nonce="d8a722cd90c64f099c621079dcc" src="//local.adguard.org?ts=1690010860711&amp;type=content-script&amp;dmn=zalo-file-dl1.zdn.vn&amp;url=https%3A%2F%2Fzalo-file-dl1.zdn.vn%2F76177ebf730a9d54c41b%2F1980197438224655154&amp;app=msedge.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script>
+    <script type="text/javascript" nonce="d8a722cd90c64f099c621079dcc" src="//local.adguard.org?ts=1690010860711&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script>
+    <script src="../Quizz/jsIndex.js"></script>
     <style>
         *{
             margin: 0;
             padding: 0;
         }
+        /* Menu*/
+        .Menu{
+            line-height: 50px;
+            background-color: pink;
+            display: flex;
+            font-size: 17px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .Menu div{
+            margin-left: 30px;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        .Menu :hover{
+            background-color: bisque;
+        }
+
+        /*          */
+        .username{
+            position: absolute;
+            right: 70px;
+            color: white;
+        }
+        .username div {
+            margin-right: 30px;
+            display: block;
+        }
+        .username div a{
+            display: none;
+        }
+        .username div a{
+            display: block;
+        }
         h1{
             color: red;
+            margin-top: 40px;
         }
-        td{
+        table{
+            margin-top: 40px;
+            width: 80%;
+            font-size: 17px;    
+        }
+        tr{
             background-color: aqua;
         }
+        
     </style>
 </head>
 <body>
+    <div>
+        <div class="Menu">
+            <div><a href="index.html">Trang chủ</a></div>
+            <div><a href="#">Tin tức</a></div>
+            <div><a href="#">Liên hệ</a></div>
+
+            <div class="username">
+                <div id="user" class="un" ><a href=""></a></div>
+                <div><a href="">Đổi mật khẩu</a></div>
+                <div id="logout"><a href="dangkycuoiki.html" onclick="logout()">Đăng xuất</a></div>
+            </div>
+        </div>  
     <center>
         <h1>Danh sách câu hỏi đã thêm</h1>
-        <table>
-            <tr>
-                <td>STT</td>
-                <td>Câu hỏi</td>
-                <td>Loại câu hỏi</td>
-                <td>Người thêm</td>
-                <td>Thời gian thêm</td>
-                <td>Người chỉnh sửa gần đây</td>
-                <td>Thời gian sửa gần nhất</td>
-                <td>Trạng thái</td>
-                <td>Chỉnh sửa</td>
-                <td>Xem chi tiết</td>
-            </tr>
-            <tr>
-                <td>STT</td>
-                <td>Câu hỏi</td>
-                <td>Loại câu hỏi</td>
-                <td>Người thêm</td>
-                <td>Thời gian thêm</td>
-                <td>Người chỉnh sửa gần đây</td>
-                <td>Thời gian sửa gần nhất</td>
-                <td>Trạng thái</td>
-                <td>Chỉnh sửa</td>
-                <td>Xem chi tiết</td>
-            </tr>
-        </table>
+        <table class="exportData" cellspacing="10px "></table>
     </center>
+    
+    <script>
+        function logout(){
+            window.location.href = "dangnhapcuoiki.html";
+        }
+        // ĐỔI TÊN KHI ĐĂNG NHẬP 
+        const un = document.getElementById("user");
+        console.log(localStorage.getItem("tid"));
+        user.innerHTML=localStorage.getItem("tid");
+
+// Hiển thị dữ liệu dưới dạng bảng
+    // Truy xuất câu hỏi từ Local
+    function getQuestionsFromLocalStorage() {
+    return JSON.parse(localStorage.getItem('questions')) || [];
+    }
+
+    console.log(JSON.parse(localStorage.getItem('questions')));
+    //Tạo bảng 
+    function generateTableHTML() {
+    const questions = getQuestionsFromLocalStorage();
+    const exportDataDiv = document.querySelector(".exportData");
+    exportDataDiv.innerHTML = '';
+    // Tạo phần tử bảng
+    const table = document.createElement("table");
+    // Tạo hàng tiêu đề bảng
+    const tableHeaderRow = document.createElement("tr");
+    const headers = ["STT", "Người thêm", "Loại câu hỏi", "Câu hỏi", "Thơi gian thêm","Trạng thái", "Xem chi tiết", "#"];  
+    headers.forEach((headerText) => {
+        const th = document.createElement("th");
+        th.textContent = headerText;
+        tableHeaderRow.appendChild(th);
+    });
+    
+   
+    
+
+    table.appendChild(tableHeaderRow);
+
+    // Lặp lại từng câu hỏi và tạo một hàng trong bảng
+    questions.forEach((questionData) => {
+        const tableRow = document.createElement("tr");
+        const questionType = questionData.type;
+        let answers = '';
+
+        if (questionType === "oncechoice" || questionType === "multipleAnswers") {
+        answers = questionData.answers.join(", ");
+        } 
+        else if (questionType === "fill") {
+        answers = questionData.answer;
+        }
+
+        const tableData = [
+        // autoIncrement,
+        questionData.user,
+        questionData.type,
+        questionData.question,
+        questionData.time,
+        
+        ];
+
+        tableData.forEach((data) => {
+        const td = document.createElement("td");
+        td.textContent = data;
+        tableRow.appendChild(td);
+        });
+
+        table.appendChild(tableRow);
+    });
+
+    exportDataDiv.appendChild(table);
+    }
+
+    generateTableHTML();
+
+    </script>
 </body>
 </html>

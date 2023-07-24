@@ -19,6 +19,7 @@ a{
 }
 .Menu div:hover{
     background-color: bisque;
+    display: block;
 }
 
 /*          */

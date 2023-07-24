@@ -6,6 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<link rel="stylesheet" href="index2.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+	
 </head>
 
 <body>
@@ -50,13 +52,13 @@
 					<input type="text">
 					<input type="text">
 				</div>
-				<div style="display: flex; flex-direction: row;">
+				<!-- <div style="display: flex; flex-direction: row;">
 					<div>Chọn đáp án đúng</div>
 					<div  style="display: flex; flex-direction: row;"><input type="checkbox">A</div>
 					<div  style="display: flex; flex-direction: row;"><input type="checkbox">B</div>
 					<div  style="display: flex; flex-direction: row;"><input type="checkbox">C</div>
 					<div  style="display: flex; flex-direction: row;"><input type="checkbox">D</div>
-				</div>
+				</div> -->
 
 
 			</div>
@@ -93,6 +95,7 @@
 		</div>
 	</div>
 
+	
 </body>
 
 
@@ -202,13 +205,13 @@
 		localStorage.setItem('questions', JSON.stringify(existingQuestions));
 	}
 	// Xử lý sự kiện khi người dùng nhấn nút "Thêm câu hỏi"
-	document.querySelector(".add").onclick = function () {
+	add.onclick = function () {
 		const select = document.getElementById("ok");
       	const selectedOption = select.options[select.selectedIndex].id;
 		let questionData = {};
 		
         // Lấy dữ liệu câu hỏi dựa trên dạng câu hỏi đã chọn
-        document.querySelector(".add").onclick = function () {
+        add.onclick = function () {
         const selectedOption = document.getElementById("ok").value;
         let questionData = {};
 		}
@@ -272,7 +275,10 @@
         }
         // Lưu câu hỏi vào local storage
         saveQuestionToLocalStorage(questionData);
-    };
+		alert("Thêm câu hỏi thành công");
+		window.location.href="index3.html";
+    };	
+
 
 </script>
 
