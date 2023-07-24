@@ -55,6 +55,7 @@
             margin-top: 40px;
             width: 80%;
             font-size: 17px;    
+            text-align: center;
         }
         tr{
             background-color: aqua;
@@ -77,7 +78,7 @@
         </div>  
     <center>
         <h1>Danh sách câu hỏi đã thêm</h1>
-        <table class="exportData" cellspacing="10px "></table>
+        <table class="exportData" cellspacing="20px "></table>
     </center>
     
     <script>
@@ -112,8 +113,13 @@
         tableHeaderRow.appendChild(th);
     });
     
-   
-    
+    // Tạo biến cho bảng
+    let stt = 0;
+    function STT(){
+        stt++;
+        return stt;
+    }
+
 
     table.appendChild(tableHeaderRow);
 
@@ -131,12 +137,14 @@
         }
 
         const tableData = [
-        // autoIncrement,
+        STT(),
         questionData.user,
         questionData.type,
         questionData.question,
         questionData.time,
-        
+        questionData.status,
+        questionData.edit,
+        questionData.symbol,
         ];
 
         tableData.forEach((data) => {
@@ -145,7 +153,10 @@
         tableRow.appendChild(td);
         });
 
-        table.appendChild(tableRow);
+        const ta = document.createElement("td");
+        ta.innerHTML = "<a> Xem chi tiết </a>";
+        tableRow.appendChild(ta);
+
     });
 
     exportDataDiv.appendChild(table);
