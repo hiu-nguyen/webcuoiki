@@ -60,7 +60,35 @@
         tr{
             background-color: aqua;
         }
-        
+        #thongbao{
+            /* display: none; */
+            position: absolute;
+            top: 25%;
+            left: 35%;
+        }
+        #thongbao > div{
+            background: rgb(255, 192, 202);
+            width: 100%;
+            position: relative;
+        }
+        #tinthongbao{
+            margin: 50px;
+            padding-bottom: 50px; 
+            width: 350px; 
+            font-size: 30px; 
+            word-break: break-word;
+        }
+        #btnx{
+            border:1px solid black;
+            background: red;
+            width: 30px;
+            height: 30px;
+            font-size: 30px;
+            line-height: 30px;
+            position: absolute;
+            top: -30px;
+            right: 0;
+        }
     </style>
 </head>
 <body>
@@ -80,6 +108,14 @@
         <h1>Danh sách câu hỏi đã thêm</h1>
         <table class="exportData" cellspacing="20px "></table>
     </center>
+
+    <div id="thongbao" align="center" style="">
+		<div style="">
+			<h1 align="center"><font color="red">Thông tin vừa nhập</font></h1>
+			<div id="tinthongbao" ></div>
+			<div id="btnx" style="">X</div>
+		</div>
+	</div>
     
     <script>
         function logout(){
@@ -143,19 +179,21 @@
         questionData.question,
         questionData.time,
         questionData.status,
-        questionData.edit,
-        questionData.symbol,
         ];
 
         tableData.forEach((data) => {
         const td = document.createElement("td");
         td.textContent = data;
         tableRow.appendChild(td);
+       
         });
-
         const ta = document.createElement("td");
-        ta.innerHTML = "<a> Xem chi tiết </a>";
+        ta.innerHTML = "<a href= \"#\" > Xem chi tiết </a>";
+        const symbol = document.createElement("td");
+        symbol.innerHTML= "#"
         tableRow.appendChild(ta);
+        tableRow.appendChild(symbol)
+        table.appendChild(tableRow);
 
     });
 
