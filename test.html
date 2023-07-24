@@ -38,7 +38,7 @@
 
 	<div align="center">
 		<div id="mau">
-			<div align="center" class="oncechoice">
+			<div class="oncechoice">
 				<h2>Câu hỏi 1 đáp án</h2>
 				<div>Nhập tên câu hỏi</div>
 				<div><input type="text" class="question"></div>
@@ -49,6 +49,13 @@
 					<input type="text">
 					<input type="text">
 					<input type="text">
+				</div>
+				<div style="display: flex; flex-direction: row;">
+					<div>Chọn đáp án đúng</div>
+					<div  style="display: flex; flex-direction: row;"><input type="checkbox">A</div>
+					<div  style="display: flex; flex-direction: row;"><input type="checkbox">B</div>
+					<div  style="display: flex; flex-direction: row;"><input type="checkbox">C</div>
+					<div  style="display: flex; flex-direction: row;"><input type="checkbox">D</div>
 				</div>
 
 
@@ -73,6 +80,7 @@
 				<div>Nhập số đáp án</div>
 				<div><input type="text" id="gt" class="answer"></div>
 				<div><button id="OK">OK</button></div>
+				
 				<div id="list">
 				</div>
 
@@ -208,6 +216,8 @@
         if (selectedOption === "o1") {
             const questionText = document.querySelector(".oncechoice input[type='text']").value;
             const answerInputs = document.querySelectorAll(".oncechoice input[type='text']");
+			const time = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds() + "-" + new Date().getDate() + "/" + (new Date().getMonth()+ 1) + "/" + new Date().getFullYear();
+			const user = localStorage.getItem("tid");
             const answers = [];
 
             answerInputs.forEach((input) => {
@@ -217,21 +227,36 @@
             questionData = {
                 type: "oncechoice",
                 question: questionText,
-                answers: answers
+                answers: answers,
+				time: time,
+				user: user
             };
+
+
         } else if (selectedOption === "o2") {
             const fillQuestionText = document.querySelector(".fill input[type='text']").value;
             const fillAnswer = document.querySelector(".fill input[type='text']").value;
+			const time = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds() + "-" + new Date().getDate() + "/" + (new Date().getMonth()+ 1) + "/" + new Date().getFullYear();
+			const user = localStorage.getItem("tid");
 
             questionData = {
                 type: "fill",
                 question: fillQuestionText,
-                answer: fillAnswer
+                answer: fillAnswer,
+				time: time,
+				user: user
+				
             };
+
+
         } else if (selectedOption === "o3") {
             const multiQuestionText = document.querySelector(".multipleAnswers input[type='text']").value;
             const multiAnswerInputs = document.querySelectorAll(".multipleAnswers input[type='text']");
+			const time = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds() + "-" + new Date().getDate() + "/" + (new Date().getMonth()+ 1) + "/" + new Date().getFullYear();
+			const user = localStorage.getItem("tid");
             const multiAnswers = [];
+
+			console.log(multiAnswerInputs);
 
             multiAnswerInputs.forEach((input) => {
                 multiAnswers.push(input.value);
@@ -240,10 +265,11 @@
             questionData = {
                 type: "multipleAnswers",
                 question: multiQuestionText,
-                answers: multiAnswers
+                answers: multiAnswers,
+				time: time,
+				user: user
             };
         }
-
         // Lưu câu hỏi vào local storage
         saveQuestionToLocalStorage(questionData);
     };
