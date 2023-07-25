@@ -123,7 +123,7 @@
     <div>
         <div class="Menu">
             <div><a href="index.html">Trang chủ</a></div>
-            <div><a href="index3.html">Câu hỏi</a></div>
+            <div><a href="index3.html">Danh sách câu hỏi</a></div>
             <div><a href="#">Tin tức</a></div>
             <div><a href="#">Liên hệ</a></div>
 
@@ -161,20 +161,17 @@
         }
         const un = document.getElementById("user");
         user.innerHTML = localStorage.getItem("tid");
-        console.log(localStorage.getItem("tid"))
 
-
-    //Check tk đã đăng nhập hay chưa
-    const check = function () {
+        //Check tk đã đăng nhập hay chưa
+        const check = function () {
             let user = localStorage.getItem("tid");
-            if (!user || user.trim() === "") { // Check if user is not set or empty
-                window.location.href = "dangkycuoiki.html"; // Redirect to registration page
-            } else {
-                // If the user is already logged in, you can redirect to the desired page (e.g., homepage)
-                window.location.href = "index.html";
+            if (!user || user.trim() === "") { // Kiểm tra xem người dùng chưa được đặt hoặc trống
+                window.location.href = "dangkycuoiki.html";
             }
         };
         check();
+
+
     </script>
 
 </body>
