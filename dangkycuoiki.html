@@ -80,11 +80,11 @@
             if (nlmk.value == nmk.value) {
                 kTra = true;
             }
-            if(tid.value === user.value){
+            if(tid === user.value){
                 alert("Tài khoản này đã được đăng nhập");
             }else{
                 if (kTra == true) {
-                    var json = JSON.stringify(user);
+                    let json = JSON.stringify(user);
                     localStorage.setItem(tid, json);
                     alert("Đăng kí thành công, hệ thống sẽ đưa bạn đến trang đăng nhập");
                     window.location = "dangnhapcuoiki.html";
