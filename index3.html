@@ -110,7 +110,7 @@
             <div class="username">
                 <div id="user" class="un" ><a href=""></a></div>
                 <div><a href="">Đổi mật khẩu</a></div>
-                <div id="logout"><a href="dangkycuoiki.html" onclick="logout()">Đăng xuất</a></div>
+                <div id="logout"><a  onclick="logout()">Đăng xuất</a></div>
             </div>
         </div>  
         <center>
@@ -129,13 +129,14 @@
     </div>
     
     <script>
+// ĐỔI TÊN KHI ĐĂNG NHẬP 
         function logout(){
             window.location.href = "dangnhapcuoiki.html";
+            const un = document.getElementById("user");
+            user.innerHTML=localStorage.getItem("tid");
         }
-        // ĐỔI TÊN KHI ĐĂNG NHẬP 
-        const un = document.getElementById("user");
-        console.log(localStorage.getItem("tid"));
-        user.innerHTML=localStorage.getItem("tid");
+        
+        
 
 // Hiển thị dữ liệu dưới dạng bảng
     // Truy xuất câu hỏi từ Local
@@ -143,7 +144,6 @@
     return JSON.parse(localStorage.getItem('questions')) || [];
     }
 
-    console.log(JSON.parse(localStorage.getItem('questions')));
     //Tạo bảng 
     function generateTableHTML() {
     const questions = getQuestionsFromLocalStorage();
@@ -228,7 +228,7 @@
                     <p><b>Người thêm:</b> ${questionData.user}</p>
                     <p><b>Loại câu hỏi:</b> ${questionData.type}</p>
                     <p><b>Câu hỏi:</b> ${questionData.question}</p>
-                    <p><b>Câu hỏi:</b> ${questionData.answers.slice(1)}</p>
+                    <p><b>Câu trả lời:</b> ${questionData.answers.slice(1)}</p>
                     <p><b>Thời gian thêm:</b> ${questionData.time}</p>
                     <p><b>Trạng thái:</b> ${questionData.status}</p>
                 `;
@@ -238,7 +238,7 @@
                     <p><b>Người thêm:</b> ${questionData.user}</p>
                     <p><b>Loại câu hỏi:</b> ${questionData.type}</p>
                     <p><b>Câu hỏi:</b> ${questionData.question}</p>
-                    <p><b>Câu hỏi:</b> ${questionData.answer}</p>
+                    <p><b>Câu trả lời:</b> ${questionData.answer}</p>
                     <p><b>Thời gian thêm:</b> ${questionData.time}</p>
                     <p><b>Trạng thái:</b> ${questionData.status}</p>
                 `;

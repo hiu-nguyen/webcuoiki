@@ -7,7 +7,7 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="index2.css">
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-	
+
 </head>
 
 <body>
@@ -17,9 +17,9 @@
 		<div><a href="#">Liên hệ</a></div>
 
 		<div class="username">
-			<div id="user" class="un">user name</div>
+			<div id="user" class="un"></div>
 			<div><a href="">Đổi mật khẩu</a></div>
-			<div id="logout"><a href="dangkycuoiki.html">Đăng xuất</a></div>
+			<div id="logout"><a onclick="logout()">Đăng xuất</a></div>
 		</div>
 	</div>
 
@@ -52,13 +52,6 @@
 					<input type="text">
 					<input type="text">
 				</div>
-				<!-- <div style="display: flex; flex-direction: row;">
-					<div>Chọn đáp án đúng</div>
-					<div  style="display: flex; flex-direction: row;"><input type="checkbox">A</div>
-					<div  style="display: flex; flex-direction: row;"><input type="checkbox">B</div>
-					<div  style="display: flex; flex-direction: row;"><input type="checkbox">C</div>
-					<div  style="display: flex; flex-direction: row;"><input type="checkbox">D</div>
-				</div> -->
 
 
 			</div>
@@ -82,7 +75,7 @@
 				<div>Nhập số đáp án</div>
 				<div><input type="text" id="gt" class="answer"></div>
 				<div><button id="OK">OK</button></div>
-				
+
 				<div id="list">
 				</div>
 
@@ -95,15 +88,18 @@
 		</div>
 	</div>
 
-	
+
 </body>
 
 
 
 <script>
-	/* ==== ĐỔI TÊN KHI ĐĂNG NHẬP ==== */
-	const un = document.getElementById("user");
-        user.innerHTML=localStorage.getItem("tid");
+	// ĐỔI TÊN KHI ĐĂNG NHẬP 
+	function logout(){
+            window.location.href = "dangnhapcuoiki.html"; 
+            const un = document.getElementById("user");
+            user.innerHTML=localStorage.getItem("tid");
+        }
 
 	// Thêm câu hỏi và đáp án cho dạng câu hỏi điền
 	let gt = document.getElementById("gt");
@@ -191,7 +187,7 @@
 	}
 
 	// Tạo một mảng để lưu trữ các câu hỏi
-    const add = document.querySelector(".add");
+	const add = document.querySelector(".add");
 	let questions = [];
 
 	function saveQuestionToLocalStorage(questionData) {
@@ -207,21 +203,27 @@
 	// Xử lý sự kiện khi người dùng nhấn nút "Thêm câu hỏi"
 	add.onclick = function () {
 		const select = document.getElementById("ok");
-      	const selectedOption = select.options[select.selectedIndex].id;
+		const selectedOption = select.options[select.selectedIndex].id;
 		let questionData = {};
-		
-        // Lấy dữ liệu câu hỏi dựa trên dạng câu hỏi đã chọn
-        add.onclick = function () {
-        const selectedOption = document.getElementById("ok").value;
-        let questionData = {};
+
+		// Lấy dữ liệu câu hỏi dựa trên dạng câu hỏi đã chọn
+		add.onclick = function () {
+			const selectedOption = document.getElementById("ok").value;
+			let questionData = {};
 		}
-        // Lấy dữ liệu câu hỏi dựa trên dạng câu hỏi đã chọn
-        if (selectedOption === "o1") {
-            const questionText = document.querySelector(".oncechoice input[type='text']").value;
-            const answerInputs = document.querySelectorAll(".oncechoice input[type='text']");
-			const time = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds() + "-" + new Date().getDate() + "/" + (new Date().getMonth()+ 1) + "/" + new Date().getFullYear();
+		// Lấy dữ liệu câu hỏi dựa trên dạng câu hỏi đã chọn
+
+
+		if (selectedOption === "o1") {
+			const questionText = document.querySelector(".oncechoice input[type='text']").value;
+			const answerInputs = document.querySelectorAll(".oncechoice input[type='text']");
+			const time = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds() + "-" + new Date().getDate() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getFullYear();
 			const user = localStorage.getItem("tid");
-            const answers = [];
+			const answers = [];
+			if (questionText === "") {
+				alert("Hãy điền đầy đủ thông tin");
+			}
+			else {
 				answerInputs.forEach((input) => {
 					answers.push(input.value);
 				});
@@ -233,56 +235,60 @@
 					time: time,
 					user: user,
 					status: "Chưa duyệt",
-					
 				};
+			}
 
-
-        } else if (selectedOption === "o2") {
-            const fillQuestionText = document.querySelector(".fill input[type='text']").value;
-            const fillAnswer = document.querySelector(".fill input[type='text']").value;
-			const time = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds() + "-" + new Date().getDate() + "/" + (new Date().getMonth()+ 1) + "/" + new Date().getFullYear();
+		}
+		else if (selectedOption === "o2") {
+			const fillQuestionText = document.querySelector(".fill input[type='text']").value;
+			const fillAnswer = document.querySelector(".fill input[type='text']").value;
+			const time = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds() + "-" + new Date().getDate() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getFullYear();
 			const user = localStorage.getItem("tid");
+			if (fillQuestionText === "") {
+				alert("Hãy điền đầy đủ thông tin");
+			}
+			else {
+				questionData = {
+					type: "fill",
+					question: fillQuestionText,
+					answer: fillAnswer,
+					time: time,
+					user: user,
+					status: "Chưa duyệt",
+				};
+			}
 
-            questionData = {
-                type: "fill",
-                question: fillQuestionText,
-                answer: fillAnswer,
-				time: time,
-				user: user,
-				status: "Chưa duyệt",
-				
-				
-            };
-
-
-        } else if (selectedOption === "o3") {
-            const multiQuestionText = document.querySelector(".multipleAnswers input[type='text']").value;
-            const multiAnswerInputs = document.querySelectorAll(".multipleAnswers input[type='text']");
-			const time = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds() + "-" + new Date().getDate() + "/" + (new Date().getMonth()+ 1) + "/" + new Date().getFullYear();
+		}
+		else if (selectedOption === "o3") {
+			const multiQuestionText = document.querySelector(".multipleAnswers input[type='text']").value;
+			const multiAnswerInputs = document.querySelectorAll(".multipleAnswers input[type='text']");
+			const time = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds() + "-" + new Date().getDate() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getFullYear();
 			const user = localStorage.getItem("tid");
-            const multiAnswers = [];
+			const multiAnswers = [];
+			if (multiAnswerInputs === "") {
+				alert("Hãy điền đầy đủ thông tin");
+			}
+			else {
+				multiAnswerInputs.forEach((input) => {
+					multiAnswers.push(input.value);
+				});
 
-			console.log(multiAnswerInputs);
 
-            multiAnswerInputs.forEach((input) => {
-                multiAnswers.push(input.value);
-            });
-
-            questionData = {
-                type: "multipleAnswers",
-                question: multiQuestionText,
-                answers: multiAnswers,
-				time: time,
-				user: user,
-				status: "Chưa duyệt",
-				
-            };
-        }
-        // Lưu câu hỏi vào local storage
-        saveQuestionToLocalStorage(questionData);
+				questionData = {
+					type: "multipleAnswers",
+					question: multiQuestionText,
+					answers: multiAnswers,
+					time: time,
+					user: user,
+					status: "Chưa duyệt",
+				};
+			}
+		}
+		// Lưu câu hỏi vào local storage
+		saveQuestionToLocalStorage(questionData); 
 		alert("Thêm câu hỏi thành công");
-		window.location.href="index3.html";
-    };	
+		window.location.href = "index3.html";
+	};
 
 </script>
 

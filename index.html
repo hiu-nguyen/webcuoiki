@@ -107,13 +107,14 @@
     <div>
         <div class="Menu">
             <div><a href="index.html">Trang chủ</a></div>
+            <div><a href="index3.html">Câu hỏi</a></div>
             <div><a href="#">Tin tức</a></div>
             <div><a href="#">Liên hệ</a></div>
 
             <div class="username">
                 <div id="user" class="un" ><a href=""></a></div>
                 <div><a href="">Đổi mật khẩu</a></div>
-                <div id="logout"><a href="dangkycuoiki.html" onclick="logout()">Đăng xuất</a></div>
+                <div id="logout"><a onclick="logout()">Đăng xuất</a></div>
             </div>
         </div>
 
@@ -136,12 +137,24 @@
     </div>
 
     <script>
+    // ĐỔI TÊN KHI ĐĂNG NHẬP
         function logout(){
-            window.location.href = "dangnhapcuoiki.html";
+            window.location.href = "dangnhapcuoiki.html"; 
+            const un = document.getElementById("user");
+            user.innerHTML=localStorage.getItem("tid");
         }
-        /* ==== ĐỔI TÊN KHI ĐĂNG NHẬP ==== */
-        const un = document.getElementById("user");
-        user.innerHTML=localStorage.getItem("tid");
+    
+    //Check tk đã đăng nhập hay chưa
+        const check = function(){
+            const user = localStorage.getItem(tid);
+            if(user === ""){
+                window.location.href="dangnhapcuoiki.html"
+            }
+            else{
+                window.location.href="index.html";
+            }
+        }
+       
     </script>
 
 </body> 
