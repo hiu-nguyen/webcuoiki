@@ -52,16 +52,24 @@
             margin-top: 40px;
         }
         table{
-            margin-top: 40px;
-            width: 80%;
+            margin-top: 20px;
+            width: 1200px;
             font-size: 17px;    
             text-align: center;
         }
         tr{
             background-color: aqua;
         }
+        #remove{
+            padding: 10px 30px;
+            background-color: red;
+            border-radius: 20px;
+            border: none;
+            margin-top: 30px;
+        }
+
         #thongbao{
-            /* display: none; */
+            display: none;
             position: absolute;
             top: 25%;
             left: 35%;
@@ -89,10 +97,11 @@
             top: -30px;
             right: 0;
         }
+
     </style>
 </head>
 <body>
-    <div>
+    <div class="bgr">
         <div class="Menu">
             <div><a href="index.html">Trang chủ</a></div>
             <div><a href="#">Tin tức</a></div>
@@ -104,18 +113,20 @@
                 <div id="logout"><a href="dangkycuoiki.html" onclick="logout()">Đăng xuất</a></div>
             </div>
         </div>  
-    <center>
-        <h1>Danh sách câu hỏi đã thêm</h1>
-        <table class="exportData" cellspacing="20px "></table>
-    </center>
-
-    <div id="thongbao" align="center" style="">
-		<div style="">
-			<h1 align="center"><font color="red">Thông tin vừa nhập</font></h1>
-			<div id="tinthongbao" ></div>
-			<div id="btnx" style="">X</div>
-		</div>
-	</div>
+        <center>
+            <h1>Danh sách câu hỏi đã thêm</h1>
+            <table class="exportData" cellspacing="20px "></table>
+            <button type="submit" id="remove">Trở về đặt câu hỏi</button>
+        </center>
+    </div>
+    
+    <div id="thongbao" align="center" >
+        <div>
+            <h1 align="center"><font color="red">Thông tin vừa nhập</font></h1>
+            <div id="tinthongbao" ></div>
+            <div id="btnx" >X</div>
+        </div>
+    </div>
     
     <script>
         function logout(){
@@ -201,6 +212,43 @@
     }
 
     generateTableHTML();
+
+// Trở về trang đặt câu hơi
+    const remove = document.querySelector("#remove");
+    remove.onclick = function(){
+        window.location.href="test.html";
+    }
+
+// Hiện thông tin câu hỏi
+    function showQuestionDetails(questionData) {
+            const thongbaoDiv = document.getElementById("thongbao");
+            const tinthongbaoDiv = document.getElementById("tinthongbao");
+            tinthongbaoDiv.innerHTML = `
+                <p><b>Người thêm:</b> ${questionData.user}</p>
+                <p><b>Loại câu hỏi:</b> ${questionData.type}</p>
+                <p><b>Câu hỏi:</b> ${questionData.question}</p>
+                <p><b>Đáp án:</b> ${questionData.answers.slice(1)}
+                <p><b>Thời gian thêm:</b> ${questionData.time}</p>
+                <p><b>Trạng thái:</b> ${questionData.status}</p>
+            `;
+            thongbaoDiv.style.display = "block";
+        }
+    const x = document.querySelector("#btnx");
+    x.onclick = function () {
+        const thongbaoDiv = document.getElementById("thongbao");
+        thongbaoDiv.style.display = "none";
+        bgr.style.opacity="1";
+    };
+
+    const viewDetailLinks = document.querySelectorAll(".exportData a");
+    const bgr = document.querySelector(".bgr")
+    viewDetailLinks.forEach((link, index) => {
+        link.onclick = function () {
+            const questions = getQuestionsFromLocalStorage();
+            bgr.style.opacity="0.5";
+            showQuestionDetails(questions[index]);
+        };
+    });
 
     </script>
 </body>
