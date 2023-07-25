@@ -95,11 +95,11 @@
 
 <script>
 	// ĐỔI TÊN KHI ĐĂNG NHẬP 
-	function logout(){
-            window.location.href = "dangnhapcuoiki.html"; 
-            const un = document.getElementById("user");
-            user.innerHTML=localStorage.getItem("tid");
-        }
+	function logout() {
+		window.location.href = "dangnhapcuoiki.html";
+		const un = document.getElementById("user");
+		user.innerHTML = localStorage.getItem("tid");
+	}
 
 	// Thêm câu hỏi và đáp án cho dạng câu hỏi điền
 	let gt = document.getElementById("gt");
@@ -265,7 +265,7 @@
 			const time = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds() + "-" + new Date().getDate() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getFullYear();
 			const user = localStorage.getItem("tid");
 			const multiAnswers = [];
-			if (multiAnswerInputs === "") {
+			if (multiQuestionText === "") {
 				alert("Hãy điền đầy đủ thông tin");
 			}
 			else {
@@ -285,10 +285,29 @@
 			}
 		}
 		// Lưu câu hỏi vào local storage
-		saveQuestionToLocalStorage(questionData); 
-		alert("Thêm câu hỏi thành công");
-		window.location.href = "index3.html";
+		saveQuestionToLocalStorage(questionData);
+
+		if (Object.keys(questionData).length === 0) {
+			alert("Thêm câu hỏi không thành công");
+			location.reload(); // Tải lại trang
+		} else {
+			alert("Thêm câu hỏi thành công");
+			window.location.href = "index3.html";
+		}
 	};
+
+	//Check tk đã đăng nhập hay chưa
+    const check = function () {
+            let user = localStorage.getItem("tid");
+            if (!user || user.trim() === "") { // Kiểm tra xem người dùng chưa được đặt hoặc trống
+                window.location.href = "dangkycuoiki.html";
+            } 
+            else {
+                window.location.href = "index.html"; // Redirect to homepage (optional, based on your use case)
+            }
+        };
+       check();
+
 
 </script>
 

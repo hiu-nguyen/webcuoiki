@@ -262,6 +262,18 @@
         };
     });
 
+    //Check tk đã đăng nhập hay chưa
+    const check = function () {
+            let user = localStorage.getItem("tid");
+            if (!user || user.trim() === "") { // Kiểm tra xem người dùng chưa được đặt hoặc trống
+                window.location.href = "dangkycuoiki.html";
+            } 
+            else {
+                window.location.href = "index.html"; // Redirect to homepage (optional, based on your use case)
+            }
+        };
+       check();
+
     </script>
 </body>
 </html>
