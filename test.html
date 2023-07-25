@@ -222,20 +222,19 @@
 			const time = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds() + "-" + new Date().getDate() + "/" + (new Date().getMonth()+ 1) + "/" + new Date().getFullYear();
 			const user = localStorage.getItem("tid");
             const answers = [];
+				answerInputs.forEach((input) => {
+					answers.push(input.value);
+				});
 
-            answerInputs.forEach((input) => {
-                answers.push(input.value);
-            });
-
-            questionData = {
-                type: "oncechoice",
-                question: questionText,
-                answers: answers,
-				time: time,
-				user: user,
-				status: "Chưa duyệt",
-				
-            };
+				questionData = {
+					type: "oncechoice",
+					question: questionText,
+					answers: answers,
+					time: time,
+					user: user,
+					status: "Chưa duyệt",
+					
+				};
 
 
         } else if (selectedOption === "o2") {

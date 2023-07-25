@@ -223,14 +223,26 @@
     function showQuestionDetails(questionData) {
             const thongbaoDiv = document.getElementById("thongbao");
             const tinthongbaoDiv = document.getElementById("tinthongbao");
-            tinthongbaoDiv.innerHTML = `
-                <p><b>Người thêm:</b> ${questionData.user}</p>
-                <p><b>Loại câu hỏi:</b> ${questionData.type}</p>
-                <p><b>Câu hỏi:</b> ${questionData.question}</p>
-                <p><b>Đáp án:</b> ${questionData.answers.slice(1)}
-                <p><b>Thời gian thêm:</b> ${questionData.time}</p>
-                <p><b>Trạng thái:</b> ${questionData.status}</p>
-            `;
+            if(questionData.type == "oncechoice" || questionData.type == " multipleAnswers"){
+                tinthongbaoDiv.innerHTML = `
+                    <p><b>Người thêm:</b> ${questionData.user}</p>
+                    <p><b>Loại câu hỏi:</b> ${questionData.type}</p>
+                    <p><b>Câu hỏi:</b> ${questionData.question}</p>
+                    <p><b>Câu hỏi:</b> ${questionData.answers.slice(1)}</p>
+                    <p><b>Thời gian thêm:</b> ${questionData.time}</p>
+                    <p><b>Trạng thái:</b> ${questionData.status}</p>
+                `;
+            }
+            else{
+                tinthongbaoDiv.innerHTML = `
+                    <p><b>Người thêm:</b> ${questionData.user}</p>
+                    <p><b>Loại câu hỏi:</b> ${questionData.type}</p>
+                    <p><b>Câu hỏi:</b> ${questionData.question}</p>
+                    <p><b>Câu hỏi:</b> ${questionData.answer}</p>
+                    <p><b>Thời gian thêm:</b> ${questionData.time}</p>
+                    <p><b>Trạng thái:</b> ${questionData.status}</p>
+                `;
+            }
             thongbaoDiv.style.display = "block";
         }
     const x = document.querySelector("#btnx");
