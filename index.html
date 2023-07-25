@@ -137,24 +137,24 @@
     </div>
 
     <script>
-    // ĐỔI TÊN KHI ĐĂNG NHẬP
+    // Đổi tên khi đăng nhập và đăng xuất
         function logout(){
             window.location.href = "dangnhapcuoiki.html"; 
             const un = document.getElementById("user");
             user.innerHTML=localStorage.getItem("tid");
         }
-    
+        
     //Check tk đã đăng nhập hay chưa
-        const check = function(){
-            const user = localStorage.getItem(tid);
-            if(user === ""){
-                window.location.href="dangnhapcuoiki.html"
+    const check = function () {
+            let user = localStorage.getItem("tid");
+            if (!user || user.trim() === "") { // Kiểm tra xem người dùng chưa được đặt hoặc trống
+                window.location.href = "dangkycuoiki.html";
+            } 
+            else {
+                window.location.href = "index.html"; // Redirect to homepage (optional, based on your use case)
             }
-            else{
-                window.location.href="index.html";
-            }
-        }
-       
+        };
+       check();
     </script>
 
 </body> 
