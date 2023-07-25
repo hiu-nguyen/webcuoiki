@@ -213,7 +213,7 @@
 		}
 		// Lấy dữ liệu câu hỏi dựa trên dạng câu hỏi đã chọn
 
-
+		
 		if (selectedOption === "o1") {
 			const questionText = document.querySelector(".oncechoice input[type='text']").value;
 			const answerInputs = document.querySelectorAll(".oncechoice input[type='text']");
@@ -286,7 +286,7 @@
 		}
 		// Lưu câu hỏi vào local storage
 		saveQuestionToLocalStorage(questionData);
-
+		//Tải lại trang khi điền câu hỏi rỗng
 		if (Object.keys(questionData).length === 0) {
 			alert("Thêm câu hỏi không thành công");
 			location.reload(); // Tải lại trang

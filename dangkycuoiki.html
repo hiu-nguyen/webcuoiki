@@ -76,11 +76,11 @@
 
     <script>
         function signUp() {
-            var tid = document.getElementById('user').value;
-            var nmk = document.getElementById('pass').value;
-            var nlmk = document.getElementById('confirmPass').value;
-            var user = localStorage.getItem(tid);
-
+            var tid = document.getElementById("user").value;
+            var nmk = document.getElementById("pass").value;
+            var nlmk = document.getElementById("confirmPass").value;
+            var username = localStorage.getItem("tid");
+            console.log(Object.key)
             var user = {
                 tid: tid,
                 nmk: nmk,
@@ -88,18 +88,20 @@
 
             var kTra = false;
 
-            if (nlmk.value == nmk.value) {
+            if (nlmk.value === nmk.value) {
                 kTra = true;
             }
-            if (tid === user.value) {
-                alert("Tài khoản này đã được đăng nhập");
-            } else {
+            if (tid === username) {
+                alert("Tài khoản này đã được tạo");
+            } 
+            else {
                 if (kTra == true) {
                     let json = JSON.stringify(user);
                     localStorage.setItem(tid, json);
                     alert("Đăng kí thành công, hệ thống sẽ đưa bạn đến trang đăng nhập");
                     window.location = "dangnhapcuoiki.html";
-                } else {
+                } 
+                else {
                     alert("Đăng kí không thành công! Xin hãy thử lại");
                 }
             }
@@ -108,6 +110,8 @@
         function login() {
             window.location.href = "dangnhapcuoiki.html";
         }
+
+    
     </script>
 </body>
 

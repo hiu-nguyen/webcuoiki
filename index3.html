@@ -162,7 +162,6 @@
         function getQuestionsFromLocalStorage() {
             return JSON.parse(localStorage.getItem('questions')) || [];
         }
-
         //Tạo bảng 
         function generateTableHTML() {
             const questions = getQuestionsFromLocalStorage();
@@ -189,61 +188,67 @@
 
             table.appendChild(tableHeaderRow);
 
-            // Lặp lại từng câu hỏi và tạo một hàng trong bảng
+            // Lặp lại từng câu hỏi và tạo một hàng trong bảng 
+
             questions.forEach((questionData) => {
-                const tableRow = document.createElement("tr");
-                const questionType = questionData.type;
-                let answers = '';
-
-                if (questionType === "oncechoice" || questionType === "multipleAnswers") {
-                    answers = questionData.answers.join(", ");
+                if (questionData.questions == "") {
+                    continue;
                 }
-                else if (questionType === "fill") {
-                    answers = questionData.answer;
+                    else{
+                    const tableRow = document.createElement("tr");
+                    const questionType = questionData.type;
+                    let answers = '';
+
+
+                    if (questionType === "oncechoice" || questionType === "multipleAnswers") {
+                        answers = questionData.answers.join(", ");
+                    }
+                    else if (questionType === "fill") {
+                        answers = questionData.answer;
+                    }
+
+                    const tableData = [
+                        STT(),
+                        questionData.user,
+                        questionData.type,
+                        questionData.question,
+                        questionData.time,
+                        questionData.status,
+                    ];
+
+                    tableData.forEach((data) => {
+                        const td = document.createElement("td");
+                        td.textContent = data;
+                        tableRow.appendChild(td);
+
+                    });
+                    const ta = document.createElement("td");
+                    ta.innerHTML = "<a href= \"#\" > Xem chi tiết </a>";
+                    const symbol = document.createElement("td");
+                    symbol.innerHTML = "#"
+                    tableRow.appendChild(ta);
+                    tableRow.appendChild(symbol)
+                    table.appendChild(tableRow);
                 }
-
-                const tableData = [
-                    STT(),
-                    questionData.user,
-                    questionData.type,
-                    questionData.question,
-                    questionData.time,
-                    questionData.status,
-                ];
-
-                tableData.forEach((data) => {
-                    const td = document.createElement("td");
-                    td.textContent = data;
-                    tableRow.appendChild(td);
-
-                });
-                const ta = document.createElement("td");
-                ta.innerHTML = "<a href= \"#\" > Xem chi tiết </a>";
-                const symbol = document.createElement("td");
-                symbol.innerHTML = "#"
-                tableRow.appendChild(ta);
-                tableRow.appendChild(symbol)
-                table.appendChild(tableRow);
-
             });
 
             exportDataDiv.appendChild(table);
-        }
 
-        generateTableHTML();
 
-        // Trở về trang đặt câu hơi
-        const remove = document.querySelector("#remove");
-        remove.onclick = function () {
-            window.location.href = "test.html";
-        }
+            generateTableHTML();
 
-        // Hiện thông tin câu hỏi
-        function showQuestionDetails(questionData) {
-            const thongbaoDiv = document.getElementById("thongbao");
-            const tinthongbaoDiv = document.getElementById("tinthongbao");
-            if (questionData.type == "oncechoice" || questionData.type == " multipleAnswers") {
-                tinthongbaoDiv.innerHTML = `
+            // Trở về trang đặt câu hỏi
+            const remove = document.querySelector("#remove");
+            remove.onclick = function () {
+                window.location.href = "test.html";
+            }
+
+            // Hiện thông tin câu hỏi
+            function showQuestionDetails(questionData) {
+                const thongbaoDiv = document.getElementById("thongbao");
+                const tinthongbaoDiv = document.getElementById("tinthongbao");
+                if (questionData.type == "oncechoice" || questionData.type == " multipleAnswers") {
+                    tinthongbaoDiv.innerHTML = `
                     <p><b>Người thêm:</b> ${questionData.user}</p>
                     <p><b>Loại câu hỏi:</b> ${questionData.type}</p>
                     <p><b>Câu hỏi:</b> ${questionData.question}</p>
@@ -251,9 +256,9 @@
                     <p><b>Thời gian thêm:</b> ${questionData.time}</p>
                     <p><b>Trạng thái:</b> ${questionData.status}</p>
                 `;
-            }
-            else {
-                tinthongbaoDiv.innerHTML = `
+                }
+                else {
+                    tinthongbaoDiv.innerHTML = `
                     <p><b>Người thêm:</b> ${questionData.user}</p>
                     <p><b>Loại câu hỏi:</b> ${questionData.type}</p>
                     <p><b>Câu hỏi:</b> ${questionData.question}</p>
@@ -261,25 +266,25 @@
                     <p><b>Thời gian thêm:</b> ${questionData.time}</p>
                     <p><b>Trạng thái:</b> ${questionData.status}</p>
                 `;
+                }
+                thongbaoDiv.style.display = "block";
             }
-            thongbaoDiv.style.display = "block";
-        }
-        const x = document.querySelector("#btnx");
-        x.onclick = function () {
-            const thongbaoDiv = document.getElementById("thongbao");
-            thongbaoDiv.style.display = "none";
-            bgr.style.opacity = "1";
-        };
-
-        const viewDetailLinks = document.querySelectorAll(".exportData a");
-        const bgr = document.querySelector(".bgr")
-        viewDetailLinks.forEach((link, index) => {
-            link.onclick = function () {
-                const questions = getQuestionsFromLocalStorage();
-                bgr.style.opacity = "0.5";
-                showQuestionDetails(questions[index]);
+            const x = document.querySelector("#btnx");
+            x.onclick = function () {
+                const thongbaoDiv = document.getElementById("thongbao");
+                thongbaoDiv.style.display = "none";
+                bgr.style.opacity = "1";
             };
-        });
+
+            const viewDetailLinks = document.querySelectorAll(".exportData a");
+            const bgr = document.querySelector(".bgr")
+            viewDetailLinks.forEach((link, index) => {
+                link.onclick = function () {
+                    const questions = getQuestionsFromLocalStorage();
+                    bgr.style.opacity = "0.5";
+                    showQuestionDetails(questions[index]);
+                };
+            });
 
     </script>
 </body>
