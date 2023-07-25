@@ -1,61 +1,70 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *{
+        * {
             padding: 0;
             margin: 0;
         }
+
         /* Menu*/
-        .Menu{
+        .Menu {
             line-height: 50px;
             background-color: pink;
             display: flex;
             font-size: 17px;
             font-family: 'Times New Roman', Times, serif;
         }
-        .Menu div{
+
+        .Menu div {
             margin-left: 30px;
         }
-        a{
+
+        a {
             text-decoration: none;
             color: white;
         }
-        .Menu :hover{
+
+        .Menu :hover {
             background-color: bisque;
         }
 
         /*          */
-        .username{
+        .username {
             position: absolute;
             right: 70px;
             color: white;
         }
+
         .username div {
             margin-right: 30px;
             display: block;
         }
-        .username div a{
+
+        .username div a {
             display: none;
         }
-        .username div a{
+
+        .username div a {
             display: block;
         }
 
 
         /* html css js*/
-        .khung{
+        .khung {
             margin-top: 300px;
         }
-        .tieude{
+
+        .tieude {
             color: green;
             font-size: 30px;
         }
-        .main{
+
+        .main {
             margin: auto;
             margin-top: 200px;
             width: 80%;
@@ -67,7 +76,8 @@
             position: relative;
             z-index: 1;
         }
-        div img{
+
+        div img {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -77,7 +87,8 @@
             position: relative;
             z-index: 2;
         }
-        .nen{
+
+        .nen {
             background-color: rgba(193, 213, 213, 0.797);
             position: absolute;
             z-index: 6;
@@ -86,23 +97,28 @@
             width: 310px;
             top: -5px;
         }
-        button{
-           position: absolute;
-           z-index: 10;
-           top: 200px;
-           right: 120px;
-           padding: 10px;
-           background-color: orange;
-           border: none;
+
+        button {
+            position: absolute;
+            z-index: 10;
+            top: 200px;
+            right: 120px;
+            padding: 10px;
+            background-color: orange;
+            border: none;
         }
-        .nen:hover{
+
+        .nen:hover {
             opacity: 1;
         }
     </style>
-<script type="text/javascript" nonce="d8a722cd90c64f099c621079dcc" src="//local.adguard.org?ts=1690010860711&amp;type=content-script&amp;dmn=zalo-file-dl1.zdn.vn&amp;url=https%3A%2F%2Fzalo-file-dl1.zdn.vn%2F76177ebf730a9d54c41b%2F1980197438224655154&amp;app=msedge.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script>
-<script type="text/javascript" nonce="d8a722cd90c64f099c621079dcc" src="//local.adguard.org?ts=1690010860711&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script>
+    <script type="text/javascript" nonce="d8a722cd90c64f099c621079dcc"
+        src="//local.adguard.org?ts=1690010860711&amp;type=content-script&amp;dmn=zalo-file-dl1.zdn.vn&amp;url=https%3A%2F%2Fzalo-file-dl1.zdn.vn%2F76177ebf730a9d54c41b%2F1980197438224655154&amp;app=msedge.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script>
+    <script type="text/javascript" nonce="d8a722cd90c64f099c621079dcc"
+        src="//local.adguard.org?ts=1690010860711&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script>
     <script src="../Quizz/jsIndex.js"></script>
 </head>
+
 <body>
     <div>
         <div class="Menu">
@@ -112,7 +128,7 @@
             <div><a href="#">Liên hệ</a></div>
 
             <div class="username">
-                <div id="user" class="un" ><a href=""></a></div>
+                <div id="user" class="un"><a href=""></a></div>
                 <div><a href="">Đổi mật khẩu</a></div>
                 <div id="logout"><a onclick="logout()">Đăng xuất</a></div>
             </div>
@@ -129,36 +145,38 @@
             <img src="https://cdn-icons-png.flaticon.com/512/888/888847.png" alt="LogoCss">
             <div class="nen"><button type="submit"><a href="test.html">Vào học</a></button></div>
         </div>
-        
+
         <div class="js">
-            <img src="https://w1.pngwing.com/pngs/136/126/png-transparent-javascript-logo-angularjs-nodejs-computer-programming-web-development-computer-software-jquery-yellow.png" alt="LogoJS">
+            <img src="https://w1.pngwing.com/pngs/136/126/png-transparent-javascript-logo-angularjs-nodejs-computer-programming-web-development-computer-software-jquery-yellow.png"
+                alt="LogoJS">
             <div class="nen"><button type="submit"><a href="test.html">Vào học</a></button></div>
         </div>
     </div>
 
     <script>
-    // Đổi tên khi đăng nhập và đăng xuất
-        function logout(){
-            window.location.href = "dangnhapcuoiki.html"; 
-           
+        // Đổi tên khi đăng nhập và đăng xuất
+        function logout() {
+            window.location.href = "dangnhapcuoiki.html";
+
         }
-            const un = document.getElementById("user");
-            user.innerHTML=localStorage.getItem("tid");
+        const un = document.getElementById("user");
+        user.innerHTML = localStorage.getItem("tid");
         console.log(localStorage.getItem("tid"))
 
-        
+
     //Check tk đã đăng nhập hay chưa
-    //     const check = function(){
-    //         let user = localStorage.getItem("tid");
-    //         if(user === ""){
-    //             window.location.href="dangnhapcuoiki.html";
-    //         }
-    //         else{
-    //             window.location.href="index.html";
-    //         }
-    //     }
-    //    check();
+    const check = function () {
+            let user = localStorage.getItem("tid");
+            if (!user || user.trim() === "") { // Check if user is not set or empty
+                window.location.href = "dangkycuoiki.html"; // Redirect to registration page
+            } else {
+                // If the user is already logged in, you can redirect to the desired page (e.g., homepage)
+                window.location.href = "index.html";
+            }
+        };
+        check();
     </script>
 
-</body> 
+</body>
+
 </html>

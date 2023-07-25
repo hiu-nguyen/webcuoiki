@@ -1,16 +1,17 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *{
+        * {
             padding: 0;
             margin: 0;
         }
-        .dangnhap{
+
+        .dangnhap {
             position: relative;
             text-align: center;
             align-items: center;
@@ -18,28 +19,37 @@
             flex-direction: column;
             top: 170px;
         }
-        .dangnhap > div {
+
+        .dangnhap>div {
             font-size: 50px;
             font-weight: bolder;
         }
-        label input{
+
+        label input {
             display: flex;
             flex-direction: column;
             margin-top: 20px;
             padding: 10px 30px;
         }
-        button{
+
+        button {
             padding: 5px 30px;
         }
-        #dangky{
+
+        #dangky {
             background-color: green;
         }
-        #dangnhap{
+
+        #dangnhap {
             background-color: red;
         }
     </style>
-<script type="text/javascript" nonce="d8a722cd90c64f099c621079dcc" src="//local.adguard.org?ts=1690010860711&amp;type=content-script&amp;dmn=zalo-file-dl1.zdn.vn&amp;url=https%3A%2F%2Fzalo-file-dl1.zdn.vn%2F1c5612fe1f4bf115a85a%2F3983489990801113022&amp;app=msedge.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script>
-<script type="text/javascript" nonce="d8a722cd90c64f099c621079dcc" src="//local.adguard.org?ts=1690010860711&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script></head>
+    <script type="text/javascript" nonce="d8a722cd90c64f099c621079dcc"
+        src="//local.adguard.org?ts=1690010860711&amp;type=content-script&amp;dmn=zalo-file-dl1.zdn.vn&amp;url=https%3A%2F%2Fzalo-file-dl1.zdn.vn%2F1c5612fe1f4bf115a85a%2F3983489990801113022&amp;app=msedge.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script>
+    <script type="text/javascript" nonce="d8a722cd90c64f099c621079dcc"
+        src="//local.adguard.org?ts=1690010860711&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script>
+</head>
+
 <body background="https://supperclean.vn/wp-content/uploads/2021/10/anh-bau-troi-hong-cute.jpg">
     <div class="nen">
         <div class="dangnhap">
@@ -58,13 +68,13 @@
     </div>
 
     <script>
-        function logIn () {
+        function logIn() {
             let tid = document.getElementById('user').value;
             let nmk = document.getElementById('pass').value;
 
             let user = localStorage.getItem(tid);
             let data = JSON.parse(user);
-            if(user === null) {
+            if (user === null) {
                 alert("Vui lòng nhập username password")
             }
             else if (tid == data.tid && nmk == data.nmk) {
@@ -74,36 +84,35 @@
             else {
                 alert("Sai tên đăng nhập hoặc mật khẩu");
             }
-            localStorage.setItem("tid",tid);
+            localStorage.setItem("tid", tid);
 
             // const tid = document.getElementById('ttk');
             // const nmk = document.getElementById('mk');
 
-            if((tid.value == 'admin') && ( nmk.value == '1234'))
-            {
-            	localStorage.setItem("chuTK","hihi");
-            	localStorage.setItem("kiemTra","true");
-            	alert("Đăng nhập thành công! Hệ thống sẽ đưa bạn về trang chủ");
-            	window.location = "Index.html";
+            if ((tid.value == 'admin') && (nmk.value == '1234')) {
+                localStorage.setItem("chuTK", "hihi");
+                localStorage.setItem("kiemTra", "true");
+                alert("Đăng nhập thành công! Hệ thống sẽ đưa bạn về trang chủ");
+                window.location = "Index.html";
             }
-            else if((tid.value == localStorage.getItem('tid')) && ( nmk.value == localStorage.getItem('nmk')))
-            {
-            	localStorage.setItem("chuTK","bad");
-            	localStorage.setItem("kiemTra","true");
+            else if ((tid.value == localStorage.getItem('tid')) && (nmk.value == localStorage.getItem('nmk'))) {
+                localStorage.setItem("chuTK", "bad");
+                localStorage.setItem("kiemTra", "true");
             }
-            else{
-            	localStorage.setItem("kiemTra", "false");
+            else {
+                localStorage.setItem("kiemTra", "false");
             }
-    
+
             // xem số lượng đã lưu trên trình duyệt
             // let data = localStorage.length;
             // alert(data);
         }
 
-        function register () {
+        function register() {
             window.location = 'dangkycuoiki.html';
         }
 
     </script>
 </body>
+
 </html>

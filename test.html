@@ -97,9 +97,9 @@
 	// ĐỔI TÊN KHI ĐĂNG NHẬP 
 	function logout() {
 		window.location.href = "dangnhapcuoiki.html";
-		const un = document.getElementById("user");
-		user.innerHTML = localStorage.getItem("tid");
 	}
+	const un = document.getElementById("user");
+	user.innerHTML = localStorage.getItem("tid");
 
 	// Thêm câu hỏi và đáp án cho dạng câu hỏi điền
 	let gt = document.getElementById("gt");
@@ -297,16 +297,16 @@
 	};
 
 	//Check tk đã đăng nhập hay chưa
-    const check = function () {
-            let user = localStorage.getItem("tid");
-            if (!user || user.trim() === "") { // Kiểm tra xem người dùng chưa được đặt hoặc trống
-                window.location.href = "dangkycuoiki.html";
-            } 
-            else {
-                window.location.href = "index.html"; // Redirect to homepage (optional, based on your use case)
-            }
-        };
-       check();
+	const check = function () {
+		let user = localStorage.getItem("tid");
+		if (!user || user.trim() === "") { // Kiểm tra xem người dùng chưa được đặt hoặc trống
+			window.location.href = "dangkycuoiki.html";
+		}
+		else {
+			window.location.href = "index.html"; // Redirect to homepage (optional, based on your use case)
+		}
+	};
+	check();
 
 
 </script>

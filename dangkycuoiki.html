@@ -1,20 +1,22 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *{
+        * {
             padding: 0;
             margin: 0;
         }
-        .body{
+
+        .body {
             position: relative;
             z-index: 0;
         }
-        .dangky{
+
+        .dangky {
             position: relative;
             text-align: center;
             align-items: center;
@@ -22,30 +24,39 @@
             flex-direction: column;
             top: 150px;
         }
-        .dangky > div {
+
+        .dangky>div {
             font-size: 50px;
             font-weight: bolder;
         }
-        label input{
+
+        label input {
             display: flex;
             flex-direction: column;
             margin-top: 20px;
             padding: 10px 30px;
         }
-        button{
+
+        button {
             padding: 5px 30px;
         }
-        #dangky{
+
+        #dangky {
             background-color: green;
         }
-        #dangnhap{
+
+        #dangnhap {
             background-color: red;
         }
     </style>
-<script type="text/javascript" nonce="d8a722cd90c64f099c621079dcc" src="//local.adguard.org?ts=1690010860711&amp;type=content-script&amp;dmn=zalo-file-dl1.zdn.vn&amp;url=https%3A%2F%2Fzalo-file-dl1.zdn.vn%2F680467ac6a198447dd08%2F8751790851889942903&amp;app=msedge.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script>
-<script type="text/javascript" nonce="d8a722cd90c64f099c621079dcc" src="//local.adguard.org?ts=1690010860711&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script></head>
+    <script type="text/javascript" nonce="d8a722cd90c64f099c621079dcc"
+        src="//local.adguard.org?ts=1690010860711&amp;type=content-script&amp;dmn=zalo-file-dl1.zdn.vn&amp;url=https%3A%2F%2Fzalo-file-dl1.zdn.vn%2F680467ac6a198447dd08%2F8751790851889942903&amp;app=msedge.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script>
+    <script type="text/javascript" nonce="d8a722cd90c64f099c621079dcc"
+        src="//local.adguard.org?ts=1690010860711&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script>
+</head>
+
 <body background="https://demoda.vn/wp-content/uploads/2022/01/hinh-nen-bau-troi-mau-hong-dep-nhat.jpg">
-    <div class="nen" >
+    <div class="nen">
         <div class="dangky">
             <div>Đăng ký</div>
             <div>
@@ -61,10 +72,10 @@
             </div>
         </div>
     </div>
-   
+
 
     <script>
-        function signUp () {
+        function signUp() {
             var tid = document.getElementById('user').value;
             var nmk = document.getElementById('pass').value;
             var nlmk = document.getElementById('confirmPass').value;
@@ -80,9 +91,9 @@
             if (nlmk.value == nmk.value) {
                 kTra = true;
             }
-            if(tid === user.value){
+            if (tid === user.value) {
                 alert("Tài khoản này đã được đăng nhập");
-            }else{
+            } else {
                 if (kTra == true) {
                     let json = JSON.stringify(user);
                     localStorage.setItem(tid, json);
@@ -94,9 +105,10 @@
             }
 
         }
-            function login(){
+        function login() {
             window.location.href = "dangnhapcuoiki.html";
         }
     </script>
 </body>
+
 </html>
