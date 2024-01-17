@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        table{
+            text-align: center;
+            width: 50%;
+            height: 250px;
+        }
+        #tr1 {
+            background: rgb(116, 23, 100);
+            font-size: 25px;
+        }
+        #tr2 {
+            background: rgb(194, 71, 153);
+            width: 25%;
+        }
+        ul li:nth-child(n+1){
+            list-style: none;
+        }
+        .class1> ul li:nth-child(1) {
+            color: red;
+            font-size: 20px;
+        }
+        .class1> ul li:nth-child(2){
+            color: yellow;
+        }
+        .class2> ul li:nth-child(1){
+            color: blue;
+            font-size: 20px;
+        }
+        .class2> ul li:nth-child(n+2){
+            color: green;
+            font-size: 15px;
+        }
+        #tr3 {
+            background: rgb(128, 115, 115);
+        }
+        .class4 {
+            background: rgb(204, 30, 97);
+            color: orange;
+        }
+        .class3 div{
+            color: orange;
+            background: rgb(68, 197, 214);
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr id="tr1" >
+            <td colspan="2"><b>Phân loại ngôn ngữ HTML và CSS</b></td>
+        </tr>
+
+        <tr id="tr2">
+            <td class="class1">
+                <ul>
+                    <li>Ngôn ngữ HTML</li>
+                    <li><i>Để thiết kế khung trang web</i></li>
+                </ul>
+            </td>
+
+            <td class="class2">
+                <ul>
+                    <li>Ngôn ngữ CSS</li> 
+                    <li>Để thay đổi thuộc tính của phần tử trong trang web:</li>
+                    <li>Phông chữ, màu chữ, màu nền, ...</li>
+                </ul> 
+            </td>
+        </tr>
+        <tr id="tr3">
+            <td class="class3">
+                <div>Sử dung cặp thẻ như: div, p, hl, br ...</div>
+            </td>
+            <td class="class4">Sử dung các thuộc tính như: background-color, font
+                <br>-family, color, font-size...</td>
+        </tr>
+    </table>
+</body>
+</html>

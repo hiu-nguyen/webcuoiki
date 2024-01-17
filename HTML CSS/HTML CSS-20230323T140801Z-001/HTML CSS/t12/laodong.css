@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 1600px;
+    margin: auto;
+}
+body{ 
+    justify-content: center;
+    align-items: center;
+}
+#hearder{
+    padding-left: 30px;
+}
+header{
+    height: 90pxpx;
+    width: 1600px;
+    border-bottom: 3px solid red;
+}
+div ul li{
+    list-style: none;
+    text-decoration: none;
+}

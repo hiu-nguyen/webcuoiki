@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            margin-top: 30px;
+        }
+        #myDiv {
+            height: 150px;
+            background-color: aqua;
+            color: white;
+            font-size: 30px;
+        }
+    </style>
+  </head>
+  <body>
+    <div><b>Thay đổi nội dung thẻ HTML</b></div>
+    <div id="myDiv">Nội dung ban đầu</div>
+    <button id="btn1">Xem nội dung 1</button>
+    <button id="btn2">Xem nội dung 2</button>
+    <script>
+        let button1 = document.getElementById("btn1");
+        let button2 = document.getElementById("btn2");
+        let myDiv = document.getElementById("myDiv");
+
+        button1.addEventListener("click", function() {
+            myDiv.innerHTML = "Chào mừng bạn đến với";
+        });
+
+      button2.addEventListener("click", function() {
+        myDiv.innerHTML = "Trường Đại Học Sư Phạm Hà Nội";
+      });
+    </script>
+  </body>
+</html>

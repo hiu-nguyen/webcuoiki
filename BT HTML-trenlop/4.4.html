@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const xau = prompt("Nhập xâu");
+
+        document.write("Xâu vừa nhập là: "+ xau.trim( ) + "<br>");
+        document.write("Xâu có: " + xau.split(" ").length + " từ" + "<br>");
+        document.write("In hoa ở các kí tự đầu: " +  xau.trim().replace(/\b\w/g, (c) => c.toUpperCase()) )
+    </script>
+</body>
+</html>

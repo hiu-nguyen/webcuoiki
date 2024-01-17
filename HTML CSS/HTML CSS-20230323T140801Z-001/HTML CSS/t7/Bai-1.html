@@ -1,0 +1,206 @@
+<html>
+
+<head>
+    <title>Bai 2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            font-family: sans-serif;
+            width: 1200px;
+            max-width: 100%;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 36px;
+        }
+
+        .main__header {
+            height: 128px;
+            background-color: rgb(49, 212,144);
+        }
+
+        .main__heading {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 300;
+            margin-top: 12px;
+        }
+
+        .main__body {
+            background-color: rgb(179, 89, 89);
+            color: white;
+        }
+
+        .main__body .main__heading {
+            font-style: italic;
+        }
+
+        .main__body-list {
+            list-style: none;
+            margin: 16px 0 12px;
+            padding: 0;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .main__body-item {
+            font-size: 20px;
+            display: block;
+            padding: 4px 32px;
+            background-color: rgb(217, 137, 137);
+            font-style: italic;
+        }
+
+        .main__body-item--active {
+            background-color: rgb(80, 171, 223);
+        }
+
+        .main__footer {
+            background-color: rgb(255, 105, 180);
+            height: 128px;
+        }
+
+        .main:nth-child(2) .main__body {
+            background-color: rgb(66, 149, 227);
+            color: rgb(164, 55, 73);
+        }
+
+        .main:nth-child(2) .main__body-list {
+            justify-content: flex-start;
+        }
+
+        .main:nth-child(2) .main__body-item:nth-child(even) {
+            background-color: pink;
+        }
+
+        .main:nth-child(2) .main__body-item {
+            background-color: greenyellow;
+            font-style: italic;
+            font-size: 20px;
+            padding: 4px 8px;
+            margin-left: 8px;
+        }
+
+        .main:nth-child(3) .main__body {
+            background-color: rgb(105, 134, 63);
+            color: rgb(109, 235, 235);
+        }
+
+        .main:nth-child(3) .main__body-list {
+            justify-content: flex-start;
+        }
+
+        .main:nth-child(3) .main__body-item:nth-child(even) {
+            background-color: rgb(161, 28, 28);
+        }
+
+        .main:nth-child(3) .main__body-item {
+            background-color: rgb(217, 137, 137);
+            font-style: italic;
+            font-size: 20px;
+            padding: 4px 8px;
+            width: 36px;
+            margin-left: 8px;
+            text-align: center;
+            line-height: 1.8rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="main">
+            <header class="main__header">
+                <h2 class="main__heading">Phần đầu trang</h2>
+            </header>
+            <div class="main__body">
+                <h2 class="main__heading">
+                    Phần chính của trang
+                </h2>
+                <ul class="main__body-list">
+                    <li class="main__body-item main__body-item--active">Item 1</li>
+                    <li class="main__body-item">Item 2</li>
+                    <li class="main__body-item">Item 3</li>
+                    <li class="main__body-item">Item 4</li>
+                    <li class="main__body-item">Item 5</li>
+                    <li class="main__body-item">Item 6</li>
+                    <li class="main__body-item">Item 7</li>
+                    <li class="main__body-item">Item 8</li>
+                    <li class="main__body-item">Item 9</li>
+                </ul>
+            </div>
+            <footer class="main__footer">
+                <h2 class="main__heading">
+                    Phần chân trang
+                </h2>
+            </footer>
+        </div>
+
+        <div class="main">
+            <header class="main__header">
+                <h2 class="main__heading">Phần đầu trang</h2>
+            </header>
+            <div class="main__body">
+                <h2 class="main__heading">
+                    Phần chính của trang
+                </h2>
+                <ul class="main__body-list">
+                    <li class="main__body-item ">Item 1</li>
+                    <li class="main__body-item ">Item 2</li>
+                    <li class="main__body-item ">Item 3</li>
+                    <li class="main__body-item ">Item 4</li>
+                    <li class="main__body-item ">Item 5</li>
+                    <li class="main__body-item ">Item 6</li>
+                    <li class="main__body-item ">Item 7</li>
+                    <li class="main__body-item ">Item 8</li>
+                    <li class="main__body-item ">Item 9</li>
+                </ul>
+            </div>
+            <footer class="main__footer">
+                <h2 class="main__heading">
+                    Phần chân trang
+                </h2>
+            </footer>
+        </div>
+
+        <div class="main">
+            <header class="main__header">
+                <h2 class="main__heading">Phần đầu trang</h2>
+            </header>
+            <div class="main__body">
+                <h2 class="main__heading">
+                    Phần chính của trang
+                </h2>
+                <ul class="main__body-list">
+                    <li class="main__body-item ">Item 1</li>
+                    <li class="main__body-item ">Item 2</li>
+                    <li class="main__body-item ">Item 3</li>
+                    <li class="main__body-item ">Item 4</li>
+                    <li class="main__body-item ">Item 5</li>
+                    <li class="main__body-item ">Item 6</li>
+                    <li class="main__body-item ">Item 7</li>
+                    <li class="main__body-item ">Item 8</li>
+                    <li class="main__body-item ">Item 9</li>
+                </ul>
+            </div>
+            <footer class="main__footer">
+                <h2 class="main__heading">
+                    Phần chân trang
+                </h2>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

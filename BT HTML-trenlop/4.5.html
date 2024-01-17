@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let danhSachSinhVien = [];
+        let x = parseInt(prompt("Nhập số lượng sinh viên: "));
+
+        for(let i = 0; i < x; i++){
+            let sinhVien = [];
+        
+        sinhVien.name = prompt("Nhập họ tên sinh viên số " + (i + 1) + ":"),
+        sinhVien.age = parseFloat(prompt("Nhập tuổi của sinh viên số " + (i + i) + ":")),
+        sinhVien.address = prompt("Nhập địa chỉ của sinh viên số " + (i + 1) + ":"),
+
+        danhSachSinhVien.push(sinhVien);
+        }
+
+        danhSachSinhVien.sort((a,b)=>{
+            return b.age - a.age;
+        });
+            
+        
+        console.log("Danh sách sinh viên:");
+        for (let i = 0; i < danhSachSinhVien.length; i++) {
+            document.write("Sinh viên thứ " + (i + 1) + ":" +"<br>");
+            document.write("Họ tên: " + danhSachSinhVien[i].name +"<br>");
+            document.write("Tuổi: " + danhSachSinhVien[i].age +"<br>");
+            document.write("Quê quán: " + danhSachSinhVien[i].address +"<br>");
+        }
+
+        
+        
+    </script>
+</body>
+</html>

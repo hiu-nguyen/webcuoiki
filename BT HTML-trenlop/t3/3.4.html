@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bai4</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            color: white;
+            list-style-type: none;
+            text-decoration: none;
+        }
+        .tieude{
+            font-size: 40px;
+            color: red;
+            text-align: center;
+            margin-top: 150px;
+        }
+        .menu {
+            width: 30%;
+            justify-content: center;
+            margin-left: 35%;
+            margin-top: 100px;
+            background-color: grey;
+            font-size: 20px;
+        }
+        .trangchu{
+            background-color: orange;
+        }
+        .menu li {
+            border-bottom: 1px solid #ccc;
+        }
+      
+        .menu li:last-child {
+            border-bottom: none;
+        }
+
+        .menu a {
+            display: block;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .menu ul ul {
+            display: none;
+            top: 40px;
+            background-color: grey;
+            width: 100%;
+
+        }
+        .menu li:hover > ul {
+            display: block;
+        }
+        .doc{
+            text-indent: 15px;
+        }
+        .doc li:hover a{
+           background-color: yellow;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div>
+        <div class="tieude">Xây dựng menu dọc cấp 2</div>
+        <div class="menu">
+            <ul>
+                <li class="trangchu"><a href="#">Trang chủ</a></li>
+                <li class="tde"><a href="#">Tin tức</a>
+                    <ul class="doc">
+                        <li><a href="#">Cuộc sống</a></li>
+                        <li><a href="#">Thời tiết</a></li>
+                    </ul>
+                </li>
+                <li class="tde"><a href="#">Liện hệ</a>
+                    <ul class="doc">
+                        <li><a href="#">Qua số điện thoại</a></li>
+                        <li><a href="#">Qua thư điện tử</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>  
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+        display: block;
+    }
+</style>
+
+<body>
+    <div>
+        <center>
+            <form id="passwordChangeForm">
+                <input type="text" placeholder="User Name" id="username">
+                <input type="password" placeholder="Nhập mật khẩu cũ" id="oldPass">
+                <input type="password" placeholder="Nhập mật khẩu mới" id="newPass">
+                <button type="submit">Đổi mật khẩu</button>
+            </form>
+        </center>
+    </div>
+
+    <script>
+        document.getElementById("passwordChangeForm").onsubmit = function (event) {
+            event.preventDefault();
+
+            let username = document.getElementById("username").value;
+            let oldPassword = document.getElementById("oldPass").value;
+            let newPassword = document.getElementById("newPass").value;
+
+            let user = localStorage.getItem(username);
+            let data = JSON.parse(user);
+            let userChange = {
+                tid: username,
+                nmk: newPassword,
+            };
+
+            if (username == data.tid || oldPassword == data.nmk) {
+                let json = JSON.stringify(userChange);
+                localStorage.setItem(username, json);
+                alert("Bạn đã thay đổi mật khẩu thành công");
+            }
+            else {
+                alert("Bạn đã thay đổi mật khẩu thất bại");
+            }
+            document.getElementById("passwordChangeForm").reset();
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <style>
+    textarea{
+        height: 300px;
+        width: 300px;
+    }
+  </style>
+  <body>
+
+    <div id="wordCount">Số từ: </div>
+    <textarea type="text" id="inputText"></textarea>
+    
+
+    <script>
+        let inputText = document.getElementById("inputText");
+        let wordCount = document.getElementById("wordCount");
+
+        inputText.addEventListener("input", function() {
+            let text = inputText.value;
+            let words = text.match(/[a-zA-Z]+/g); // Lọc chỉ chữ (không tính kí tự)
+            let count = words ? words.length : 0;
+
+            wordCount.textContent="Số từ: " + count;
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <div class="out">
+            Position:fixed
+        </div>
+
+    <div class="ndung">
+        <div class="block" id="b1">1</div>
+        <div class="block" id="b2">2</div>
+        <div class="block" id="b3">3</div>
+        <div class="block" id="b1">4</div>
+        <div class="block" id="b2">5</div>
+        <div class="block" id="b3">6</div>
+        <div class="block" id="b1">7</div>
+        <div class="block" id="b2">8</div>
+        <div class="block" id="b3">9</div>
+    </div>
+    <div style="min-height: 400px;"></div>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .block{
+        width: 200px;
+        height: 200px;
+        margin-top: 20px;
+        text-align: center;
+        color: white;
+        font-size: 30px;
+        font-weight: bold;
+        line-height: 200px;
+    }
+    #b1{
+        background-color: #3c9cd9;
+    }
+    #b2{
+        background-color: #d9699b;
+    }
+    #b3{
+        background-color: #3cd9d0;
+    }
+    .out{
+        margin: 50px 300px;
+        position: fixed;
+        background-color: pink;
+        width: 200px;
+        height: 200px;
+        font-size: 25px;
+        line-height: 200px;
+        font-weight: bold;
+        /*top: 50px;
+        left: 300px; căn cứ theo cửa sổ trình duyệt*/
+    }
+    .ndung{
+        margin-left: 600px;
+        margin-top: 10px;
+    }
+
+</style>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            background-color:  aqua;
+            color: white;
+            height: 50px;
+            width: 300px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <p><b>Ẩn và hiển thị thẻ div bằng JavaScript</b></p>
+    <div id="tt">Chào mừng các bạn đến với Khóa Công nghệ Thông Tin - Đại Học Sư Phạm Hà Nội</div>
+    <button id="an">Ẩn đi</button>
+    <button id="hien">Hiện thị</button>
+
+
+    <script>
+        let tt = document.getElementById("tt");
+        let an = document.getElementById("an");
+        let hien = document.getElementById("hien");
+
+        an.addEventListener("click", function(){
+            tt.style.display  = "none";
+        })
+        hien.addEventListener("click", function(){
+            tt.style.display  = "block";
+        })
+    </script>
+</body>
+</html>

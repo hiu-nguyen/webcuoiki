@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            width: 555px;
+            padding: auto;
+            margin: 50px 100px
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+        ul{
+            border-radius: 20px;
+            padding: 0px;
+            list-style: none;
+            background: #8a8383;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        ul li{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#">Group1</a></li>
+        <li>
+            <a href="#">Group 2</a>
+            <ul class="dropdown">
+                <li><a href="#">Class1</a></li>
+                <li>
+                    <a href="#">Class 2</a>
+                    <ul class="dropdown1">
+                        <li><a href="#">Class 1</a></li>
+                        <li><a href="#">Class 2</a></li>
+                        <li><a href="#">Class 3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Class 3</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Group 3</a></li>
+    </ul>
+</body>
+</html>

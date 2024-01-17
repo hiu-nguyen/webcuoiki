@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" name="" placeholder="Nhập tên của bạn">
+
+    <button type="submit" id="A">a nhô xê ô</button>
+
+    <div></div>
+
+    <script>
+        
+        let button = document.querySelector("button");
+        let input = document.querySelector("input");
+        let output = document.querySelector("div");
+
+        button.addEventListener("click", function(){
+            output.innerHTML = ("Tên của bạn là: " + input.value);
+        });
+    </script>
+</body>
+</html>

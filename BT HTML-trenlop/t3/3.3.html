@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Show Hide Dropdown Using CSS</title>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        text-decoration: none;
+    }
+    .tieude{
+        font-size: 30px;
+        text-align: center;
+        color: red;
+    }
+    div{
+        width: 60%;
+        margin-left: 20%;
+        margin-top: 80px;
+    }
+    ul {
+        padding: 0;
+        background-color: #23ea37;        
+    }
+    .trangchu{
+        background-color: aqua;
+    }
+    ul li {
+        display: inline-block;
+        position: relative;
+        text-align: center;
+    }
+    ul li a {
+        display: block;
+        padding: 10px 40px;
+        color: white;
+    }
+    ul li a:hover {
+        color: black;
+    }
+    ul li ul.menudoc {
+        background-color: #23ea37;
+        width: 200px;
+        display: none;
+        position: absolute;
+        left: -4px;
+    }
+    ul li:hover ul.menudoc {
+        display: block; 
+    }
+    .menungang{
+        display: inline-block;
+        position: relative;
+    }
+    ul li ul li.menungang ul {
+        position: absolute;
+        left: 110%;
+        top: 0;
+        background-color: #23ea37;
+        width: 200px;
+        display: none;
+    }
+    ul li ul li.menungang:hover ul {
+        display: block;
+    }
+
+    ul li ul li.menungang1 ul {
+        position: absolute;
+        left: 120%;
+        top: 0;
+        background-color: #23ea37;
+        width: 200px;
+        display: none;
+    } 
+    ul li ul li.menungang1:hover ul {
+        display: block;
+    } 
+    ul li ul li.menungang2 ul {
+        position: absolute;
+        left: 120%;
+        top: 0;
+        background-color: #23ea37;
+        width: 200px;
+        display: none;
+    } 
+    ul li ul li.menungang2:hover ul {
+        display: block;
+    } 
+
+    ul li ul.menudoc1 {
+        background-color: #23ea37;
+        width: 200px;
+        display: none;
+        position: absolute;
+        left: -4px;
+    }
+    ul li:hover ul.menudoc1 {
+        display: block; 
+    }
+
+    li ul.menudoc1 li ul.menungang3  {
+        position: absolute;
+        left: 100%;
+        top: 0;
+        background-color: #23ea37;
+        width: 200px;
+        display: none;
+    } 
+    li ul.menudoc1 li:hover  ul.menungang3 {
+        display: block;
+    } 
+
+    li ul.menudoc1 li ul.menungang4  {
+        position: absolute;
+        left: 105%;
+        top: 0;
+        background-color: #23ea37;
+        width: 200px;
+        display: none;
+    } 
+    li ul.menudoc1 li:hover  ul.menungang4 {
+        display: block;
+    } 
+    
+</style>
+
+        
+</head>
+<body>
+    <div class="tieude">Xây dựng Menu ngang cấp 3</div>
+    <div>
+        <ul>
+            <li class="trangchu"><a href="#">Trang chủ</a></li>
+            <li>
+                <a href="#">Tin tức</a>
+                <ul class="menudoc">
+                    <li class="menungang"><a href="#">Cuộc sống</a>
+                        <ul>
+                            <li><a href="#">Cuộc sống1</a></li>
+                            <li><a href="#">Cuộc sống2</a></li>
+                        </ul>
+                    </li>
+                    <li class="menungang1"><a href="#">Thể thao</a>
+                        <ul>
+                            <li><a href="#">Thể thao 1</a></li>
+                            <li><a href="#">Thể thao 2</a></li>
+                            <li><a href="#">Thể thao 3</a></li>
+                        </ul>
+                    </li>
+                    <li class="menungang2"><a href="#">Thời tiết</a>
+                        <ul>
+                            <li><a href="#">Thời tiết 1</a></li>
+                            <li><a href="#">Thời tiết 2</a></li>
+                            <li><a href="#">Thời tiết 3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#">Liên hệ</a>
+                <ul class="menudoc1">
+                    <li><a href="#">Qua số điện thoại</a>
+                        <ul class="menungang3">
+                            <li><a href="#">Số điện thoại 1</a></li>
+                            <li><a href="#">Số điện thoại 2</a></li>
+                            <li><a href="#">Số điện thoại 3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Qua thư điện tử</a>
+                        <ul class="menungang4">
+                            <li><a href="#">Thư điện tử 1</a></li>
+                            <li><a href="#">Thư điện tử 2</a></li>
+                            <li><a href="#">Thư điện tử 3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
+
+

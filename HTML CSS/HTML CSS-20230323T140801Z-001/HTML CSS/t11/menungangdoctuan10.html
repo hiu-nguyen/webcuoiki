@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MENU NGANG VÀ DỌC</title>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        padding: auto;
+        width: 555px;
+        margin: 50px 100px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+    }
+    ul {
+       
+        padding: auto;
+        list-style: none;
+        background: #8a8383;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    ul li {
+        display: inline-block;
+        position: relative;
+        line-height: 30px;
+        padding: auto;
+    }
+    ul li a {
+        display: block;
+        padding: 8px 55px;
+        color: rgb(240, 230, 230);
+        text-decoration: none;
+    }
+    ul li a:hover {
+        color: rgb(244, 232, 232);
+        background: #d63f3f;
+    }
+    ul li ul.dropdown {
+        min-width: 100%; /* Set width of the dropdown */
+        background: #8a8383;
+        display: none;
+        position: absolute;
+       
+        left: 0;
+        border-top: 2px solid white;
+    }
+    ul li:hover ul.dropdown {
+        display: block; /* Display the dropdown */
+    }
+    ul li ul.dropdown li {
+        display: block;
+    }
+    ul li ul li ul.dropdown1{
+        
+        min-width: 100%; /* Set width of the dropdown */
+        background: #8a8383;
+        display: none;
+        position: absolute;
+        
+        left: 172px;
+        top: 0px;
+        border-left: 2px solid white;
+    }
+    ul li ul li:hover ul.dropdown1{
+        display: block;
+    }
+    ul li ul li ul.dropdown1 li{
+        display: block;
+    }
+</style>
+</head>
+<body>
+    <ul>
+        <li><a href="#">Group1</a></li>
+        <li>
+            <a href="#">Group 2</a>
+            <ul class="dropdown">
+                <li><a href="#">Class1</a></li>
+                <li>
+                    <a href="#">Class 2</a>
+                    <ul class="dropdown1">
+                        <li><a href="#">Class 1</a></li>
+                        <li><a href="#">Class 2</a></li>
+                        <li><a href="#">Class 3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Class 3</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Group 3</a></li>
+    </ul>
+</body>
+</html>

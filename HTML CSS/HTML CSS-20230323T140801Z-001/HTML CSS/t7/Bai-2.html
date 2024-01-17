@@ -1,0 +1,264 @@
+<html>
+
+<head>
+    <title>Bai 2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            font-family: sans-serif;
+            width: 1200px;
+            max-width: 100%;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 36px;
+        }
+
+        .main__header {
+            height: 128px;
+            background-color: rgb(49, 212,144);
+        }
+
+        .main__heading {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 300;
+            margin-top: 12px;
+        }
+
+        .main__body {
+            background-color: rgb(179, 89, 89);
+            color: white;
+        }
+
+        .main__body .main__heading {
+            font-style: italic;
+        }
+
+        .main__body-list {
+            list-style: none;
+            margin: 16px 0 12px;
+            padding: 0;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .main__body-item {
+            font-size: 20px;
+            display: block;
+            padding: 7px 32px;
+            background-color: rgb(217, 137, 137);
+            font-style: italic;
+        }
+
+        .main__body-item--active {
+            background-color: rgb(80, 171, 223);
+        }
+
+        .main__footer {
+            background-color: rgb(255, 105, 180);
+            height: 128px;
+        }
+
+
+
+        .main:nth-child(2) .main__body {
+            background-color: rgb(109, 162, 196);
+            color: rgb(161, 28, 28);
+        }
+
+        .main:nth-child(2) .main__body-list {
+            list-style: none;
+            margin: 16px 0 12px;
+            padding: 0;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .main:nth-child(2) .main__body-item:nth-child(even) {
+            background-color: rgb(161, 28, 28);
+            color: white;
+        }
+
+        .main:nth-child(2) .main__body-item {
+            background-color: rgb(217, 137, 137);
+            font-style: italic;
+            display: block;
+            padding: 4px 20px;
+            justify-content: space-evenly;
+        }
+        .main:nth-child(3) .main__body {
+            background-color: rgb(105, 134, 63);
+        }
+        .main__table{
+            width: 1200px;
+            height: 530px;
+        }
+        .main__banner{
+            padding-left: 30px;
+            background-color: rgb(193, 241, 147);
+            width: 1160px;
+            height: 100px;
+            margin-left: 5px;
+            text-align: center;
+            font-size: 30px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .tr1{
+            background-color: rgb(217, 137, 137);
+        }
+       .tr1:nth-child(odd){
+            color: rgb(255, 255, 255);
+        }
+        .tr1:nth-child(even){
+            color: rgb(144, 240, 232);
+        }
+        
+        .tr21{
+            color: rgb(144, 240, 232);
+            
+        }
+        .tr22{
+            color: rgb(255, 255, 255);
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="main">
+            <header class="main__header">
+                <h2 class="main__heading">Phần đầu trang</h2>
+            </header>
+            <div class="main__body">
+                <h2 class="main__heading">
+                    Phần chính của trang
+                </h2>
+                <ul class="main__body-list">
+                    <li class="main__body-item main__body-item--active">Item 1</li>
+                    <li class="main__body-item">Item 2</li>
+                    <li class="main__body-item">Item 3</li>
+                    <li class="main__body-item">Item 4</li>
+                    <li class="main__body-item">Item 5</li>
+                    <li class="main__body-item">Item 6</li>
+                    <li class="main__body-item">Item 7</li>
+                    <li class="main__body-item">Item 8</li>
+                    <li class="main__body-item">Item 9</li>
+                </ul>
+            </div>
+            <footer class="main__footer">
+                <h2 class="main__heading">
+                    Phần chân trang
+                </h2>
+            </footer>
+        </div>
+
+        <div class="main">
+            <header class="main__header">
+                <h2 class="main__heading">Phần đầu trang</h2>
+            </header>
+            <div class="main__body">
+                <h2 class="main__heading">
+                    Phần chính của trang
+                </h2>
+                <ul class="main__body-list">
+                    <li class="main__body-item ">Item 1</li>
+                    <li class="main__body-item ">Item 2</li>
+                    <li class="main__body-item ">Item 3</li>
+                    <li class="main__body-item ">Item 4</li>
+                    <li class="main__body-item ">Item 5</li>
+                    <li class="main__body-item ">Item 6</li>
+                    <li class="main__body-item ">Item 7</li>
+                    <li class="main__body-item ">Item 8</li>
+                    <li class="main__body-item ">Item 9</li>
+                </ul>
+                <ul class="main__body-list">
+                    <li class="main__body-item ">Item 10</li>
+                    <li class="main__body-item ">Item 11</li>
+                    <li class="main__body-item ">Item 12</li>
+                    <li class="main__body-item ">Item 13</li>
+                    <li class="main__body-item ">Item 14</li>
+                    <li class="main__body-item ">Item 15</li>
+                    <li class="main__body-item ">Item 16</li>
+                    <li class="main__body-item ">Item 17</li>
+                    <li class="main__body-item ">Item 18</li>
+                </ul>
+            </div>
+            <footer class="main__footer">
+                <h2 class="main__heading">
+                    Phần chân trang
+                </h2>
+            </footer>
+        </div>
+
+        <div class="main">
+            <header class="main__header">
+                <h2 class="main__heading">Phần đầu trang</h2>
+            </header>
+            <div class="main__body" >
+                <h2 class="main__heading" >
+                    Phần chính của trang    
+                </h2>
+                <div class="main__table">
+                    <div class="main__banner">
+                        <div>Banner</div>
+                    </div>
+                    <div>
+                        <table width="1200px"  >
+                            <tr width="100%" height="360px">
+                                <td width="4000px" height="360px">
+                                    <table  width="400px" height="100%"  >
+                                        <tr>
+                                            <td>
+                                                <img src="https://th.bing.com/th/id/OIP.okhKTQsa_Toiw4ST5LozYAHaHa?pid=ImgDet&rs=1"  width="400px" height="360px"> 
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td width="790px">
+                                    <table width="790px" height="360px"  cellpaccing="15px" >
+                                        <tr width="790px" height="60px" align="center">
+                                            <td colspan="2" class="tr21" bgcolor="#D98989">Bản tin 1</td>
+                                            <td colspan="3" class="tr22" bgcolor="#D98989"> Xem chi tiết</td>
+                                            <td colspan="2" class="tr21" bgcolor="#D98989">Bản tin 2</td>
+                                            <td colspan="3" class="tr22" bgcolor="#D98989"> Xem chi tiết</td>
+                                        </tr>
+                                        <tr height="300px" align="center">
+                                            <td colspan="5" rowspan="4" class="tr22" bgcolor="#D98989">Nội dung mô tả</td>
+                                            <td colspan="5" rowspan="4" class="tr21" bgcolor="#D98989">Nội dung mô tả</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <table width="100%" height="40px">
+                                <tr width="100%" height="40px" align="center" >
+                                    <td class="tr1" width="100px" >Add 1</td>
+                                    <td class="tr1" width="100px" >Add 2</td>
+                                    <td class="tr1" width="100px" >Add 3</td>
+                                    <td class="tr1" width="100px" >Add 4</td>
+                                    <td  colspan="10" bgcolor="#D98989" width="750px" ><font color="white">Liên Hệ với chúng tôi</font></td>
+                                </tr> 
+                            </table>     
+                        </table>
+                    </div>
+                </div>
+            </div>   
+        </div>
+    </div>
+</body>
+</html>
